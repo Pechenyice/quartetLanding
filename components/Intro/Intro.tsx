@@ -1,6 +1,6 @@
 import React from "react";
-import { KvartetDisplay } from "..";
-import { IKvartet } from "../../types";
+import { KvartetDisplay } from "./../../components";
+import { IKvartet } from "./../../types";
 
 export default function Intro({ kvartet }: IKvartet): JSX.Element {
 	return (
