@@ -11,3 +11,16 @@ export interface IKvartetMember {
 export interface IKvartet {
   kvartet: KvartetMember[];
 }
+
+export interface IInformation {
+  name: string;
+  location: string;
+  date: string;
+  price: number;
+}
+
+export interface IProgram {
+  name: string;
+  duration: string;
+  content: string[];
+}
