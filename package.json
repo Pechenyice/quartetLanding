@@ -1,5 +1,5 @@
 {
-  "name": "kvartet_landing_ssg",
+  "name": "quartet_landing_ssg",
   "private": true,
   "scripts": {
     "dev": "next dev",
