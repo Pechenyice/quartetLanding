@@ -1,3 +1,4 @@
+import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -13,9 +14,9 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     setKvartet(JSON.parse(kvartet));
   }, [kvartet]);
   return (
-    <>
+    <section className={styles.app}>
       <Intro kvartet={_kvartet} />
-    </>
+    </section>
   );
 };
 
