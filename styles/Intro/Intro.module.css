@@ -1,0 +1,68 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 150px;
+}
+
+.main {
+  font-family: Fog;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 102px;
+  font-feature-settings: 'liga';
+  color: var(--black);
+}
+
+.imageBox {
+  position: relative;
+  transform: translateY(25%);
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.button {
+  position: absolute;
+  bottom: 100px;
+  left: 30%;
+  font-family: Fog;
+  font-size: 16px;
+  font-weight: normal;
+  background: var(--black);
+  color: white;
+  width: 0px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  transition: 0.2s;
+  overflow: hidden;
+  animation: buttonInit 0.3s ease-in-out 1s 1 forwards;
+}
+
+@keyframes buttonInit {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 250px;
+  }
+}
+
+.button p {
+  margin: 15px 30px;
+  width: max-content;
+  min-width: 200px;
+}

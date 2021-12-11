@@ -1,0 +1,8 @@
+@keyframes borderAnimation {
+  from {
+    background-position: 0 0, -26.2px 0, 100% -26.2px, 0 100%;
+  }
+  to {
+    background-position: 0 -26.2px, 0 0, 100% 0, -26.2px 100%;
+  }
+}
