@@ -23,7 +23,8 @@
       "@Events/*": ["events/*"],
       "@Members/*": ["members/*"],
       "@Styles/*": ["styles/*"],
-      "@Types/*": ["types/*"]
+      "@Types/*": ["types/*"],
+      "@Public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
