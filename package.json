@@ -1,18 +1,25 @@
 {
   "name": "quartet_landing_ssg",
   "private": true,
+  "homepage": "https://pechenyice.github.io/quartetLanding",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export -o build && type NUL > ./build/.nojekyll",
+    "export": "next export -o build && npm run replaceFilePaths",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
+    "replaceFilePaths": "node replace.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@craco/craco": "^6.4.3",
     "next": "12.0.4",
+    "next-compose-plugins": "^2.2.1",
+    "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "replace-in-file": "^6.3.2"
   },
   "devDependencies": {
     "@types/node": "16.11.7",
