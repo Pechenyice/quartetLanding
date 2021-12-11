@@ -24,7 +24,8 @@
       "@Members/*": ["members/*"],
       "@Styles/*": ["styles/*"],
       "@Types/*": ["types/*"],
-      "@Public/*": ["public/*"]
+      "@Public/*": ["public/*"],
+      "@Utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

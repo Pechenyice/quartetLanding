@@ -11,6 +11,7 @@ module.exports = {
       '@Styles': path.resolve(__dirname, 'styles'),
       '@Types': path.resolve(__dirname, 'types'),
       '@Public': path.resolve(__dirname, 'public'),
+      '@Utils': path.resolve(__dirname, 'utils'),
     },
   },
 };
