@@ -2,10 +2,10 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
-import * as members from './../members';
-import Intro from '../components/Intro/Intro';
-import { KvartetMember } from '../types';
+import styles from '@Styles/Home.module.css';
+import * as members from '@Members/index';
+import { Intro } from '@Components/index';
+import { KvartetMember } from '@Types/index';
 
 const Home = ({ kvartet }: { kvartet: string }) => {
   let [_kvartet, setKvartet] = useState([] as KvartetMember[]);

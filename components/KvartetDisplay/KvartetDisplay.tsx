@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { IKvartet } from '../../types/interfaces';
+import { IKvartet } from '@Types/interfaces';
 
 export default function KvartetDisplay({ kvartet }: IKvartet): JSX.Element {
   let kvartetPreview = kvartet.map((m, i) => (
