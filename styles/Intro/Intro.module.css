@@ -12,21 +12,148 @@
   font-style: normal;
   font-weight: 500;
   font-size: 80px;
-  line-height: 102px;
+  line-height: 110px;
   font-feature-settings: 'liga';
   color: var(--black);
 }
 
 .imageBox {
   position: relative;
-  transform: translateY(25%);
+  transform: translateY(30%);
+}
+
+.mainAccent,
+.addAccent,
+.addAccentLast {
+  position: relative;
+}
+
+.mainAccent::before,
+.addAccent::before,
+.addAccentLast::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  height: 8px;
+  width: 0px;
+  border-radius: 2px;
+  background-color: var(--black);
+  animation: accentInit 1s ease-in-out 0s 1 forwards;
+  animation-fill-mode: forwards;
+}
+
+.mainAccent::before {
+  animation-delay: 4.5s;
+}
+
+.addAccent::before {
+  animation-delay: 5s;
+}
+
+.addAccentLast::before {
+  animation-delay: 5.5s;
+}
+
+@keyframes accentInit {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+    right: unset;
+  }
+
+  51% {
+    width: 100%;
+    right: 0;
+    left: unset;
+  }
+
+  100% {
+    width: 0;
+    left: unset;
+    right: 0;
+  }
+}
+
+.appearance_1 {
+  opacity: 0;
+  animation: appearanceInit 0.5s ease-in-out 0.5s 1 forwards;
+}
+
+.appearance_2 {
+  opacity: 0;
+  animation: appearanceInit 0.5s ease-in-out 1s 1 forwards;
+}
+
+.appearance_3 {
+  opacity: 0;
+  animation: appearanceInit 0.5s ease-in-out 1.2s 1 forwards;
+}
+
+.appearance_4 {
+  opacity: 0;
+  animation: appearanceInit 0.5s ease-in-out 2s 1 forwards;
+}
+
+.appearance_5 {
+  opacity: 0;
+  animation: appearanceInit 0.5s ease-in-out 2.5s 1 forwards;
+}
+
+.appearance_6 {
+  opacity: 0;
+  animation: appearanceInit 0.5s ease-in-out 3s 1 forwards;
+}
+
+@keyframes appearanceInit {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.logoBack {
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+
+.imageBox:hover .logoBack {
+  transition: 0.5s;
+  transform: scale(1.3);
+}
+
+.imageBox:hover .logoAddition_1,
+.imageBox:hover .logoAddition_2,
+.imageBox:hover .logoAddition_3 {
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.imageBox:hover .logoAddition_1 {
+  transform: translate(-10%, -80%) scale(1);
+}
+
+.imageBox:hover .logoAddition_2 {
+  transform: translate(-30%, -80%) scale(1);
+}
+
+.imageBox:hover .logoAddition_3 {
+  transform: translate(-80%, -80%) scale(1);
 }
 
 .logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -75%);
+  transform: translate(-50%, -80%) scale(1);
+  transition: 0.5s;
 }
 
 .button {
@@ -36,6 +163,7 @@
   font-family: Fog;
   font-size: 16px;
   font-weight: normal;
+  letter-spacing: 0.1em;
   background: var(--black);
   color: white;
   width: 0px;
@@ -48,7 +176,7 @@
   cursor: pointer;
   transition: 0.2s;
   overflow: hidden;
-  animation: buttonInit 0.3s ease-in-out 1s 1 forwards;
+  animation: buttonInit 0.3s ease-in-out 3.5s 1 forwards;
 }
 
 @keyframes buttonInit {
