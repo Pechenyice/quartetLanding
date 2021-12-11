@@ -1,4 +1,4 @@
-import { IProgram } from '../types/interfaces';
+import { IProgram } from '@Types/interfaces';
 
 const Program: IProgram = {
   name: 'Новое выступление',

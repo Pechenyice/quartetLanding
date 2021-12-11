@@ -1,4 +1,4 @@
-import { IInformation } from '../types/interfaces';
+import { IInformation } from '@Types/interfaces';
 
 const Information: IInformation = {
   name: 'Новое выступление',
