@@ -6,6 +6,6 @@ module.exports = {
   assetPrefix: '/quartetLanding',
   images: {
     loader: 'imgix',
-    path: 'https://pechenyice.github.io/quartetLanding/',
+    path: 'https://pechenyice.github.io/',
   },
 };
