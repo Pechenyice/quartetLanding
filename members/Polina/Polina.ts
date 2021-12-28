@@ -5,7 +5,7 @@ const Polina: IKvartetMember = {
   name: 'Polina',
   preview: 'Polina.jpg',
   instrument: Instrument.VIOLIN,
-  about: 'Govnina',
+  about: 'Polina',
 };
 
 export default Polina;

@@ -2,10 +2,10 @@ import { Instrument } from '@Types/enums';
 import { IKvartetMember } from '@Types/interfaces';
 
 const PolinaK: IKvartetMember = {
-  name: 'Polina',
+  name: 'Polina K',
   preview: 'PolinaK.jpg',
   instrument: Instrument.VIOLIN,
-  about: 'Govnina',
+  about: 'Polina K',
 };
 
 export default PolinaK;
