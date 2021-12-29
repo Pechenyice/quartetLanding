@@ -11,7 +11,7 @@ import { KvartetMember } from '@Types/index';
 const Home = ({ kvartet }: { kvartet: string }) => {
   let [_kvartet, setKvartet] = useState([] as KvartetMember[]);
 
-  let [floor, setFloor] = useState(0);
+  let [floor, setFloor] = useState(1);
 
   let app = useRef(null as unknown as HTMLElement);
 
