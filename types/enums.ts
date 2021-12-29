@@ -1,5 +1,10 @@
 export enum Instrument {
-  VIOLIN = 0,
-  CELLO = 1,
-  ALTO = 2,
+  VIOLIN = 'Скрипка',
+  CELLO = 'Виолончель',
+  ALTO = 'Альт',
+}
+
+export enum Floor {
+  'Clio quartet',
+  'О нас',
 }
