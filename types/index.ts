@@ -17,20 +17,4 @@ export class KvartetMember implements IKvartetMember {
     this.instrument = member.instrument;
     this.about = member.about;
   }
-
-  get getPreview() {
-    return this.preview;
-  }
-
-  get getName() {
-    return this.name;
-  }
-
-  get getInstrument() {
-    return Instrument[this.instrument];
-  }
-
-  get getAbout() {
-    return this.about;
-  }
 }
