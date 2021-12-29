@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import styles from '@Styles/KvartetDisplay/KvartetDisplay.module.css';
 import back from '@Public/back.png';
 import { IKvartet } from '@Types/interfaces';
-import { combineClasses } from '@Utils/index';
+import { combineClasses, getPrefix } from '@Utils/index';
 
 export default function KvartetDisplay({ kvartet }: IKvartet): JSX.Element {
   let membersAreas: HTMLCollectionOf<Element> = null as unknown as HTMLCollectionOf<Element>;
@@ -50,7 +50,12 @@ export default function KvartetDisplay({ kvartet }: IKvartet): JSX.Element {
           objectFit="contain"
         />
         <div className={styles.memberImg}>
-          <Image src={`/${m.preview}`} alt="kvartet member" layout="fill" objectFit="contain" />
+          <Image
+            src={`${getPrefix()}${m.preview}`}
+            alt="kvartet member"
+            layout="fill"
+            objectFit="contain"
+          />
         </div>
       </div>
       <div className={styles.memberDescription}>
