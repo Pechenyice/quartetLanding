@@ -10,7 +10,7 @@
     "lint": "next lint",
     "replaceFilePaths": "node replace.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -t -d build"
   },
   "dependencies": {
     "@craco/craco": "^6.4.3",
