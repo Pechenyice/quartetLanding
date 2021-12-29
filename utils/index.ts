@@ -2,4 +2,8 @@ function combineClasses(...classes: string[]): string {
   return classes.join(' ');
 }
 
-export { combineClasses };
+function getPrefix() {
+  return process.env.NODE_ENV.toLowerCase() === 'production' ? '/quartetLanding' : '/';
+}
+
+export { combineClasses, getPrefix };
