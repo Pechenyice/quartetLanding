@@ -20,6 +20,7 @@
 .imageBox {
   position: relative;
   transform: translateY(30%);
+  cursor: pointer;
 }
 
 .mainAccent,
@@ -119,13 +120,15 @@
   }
 }
 
-.logoBack {
+.imageBox .logoBack {
   transform: scale(1.2);
+  transition-delay: 0.5s !important;
   transition: 0.5s;
 }
 
 .imageBox:hover .logoBack {
   transition: 0.5s;
+  transition-delay: 0s !important;
   transform: scale(1.3);
 }
 
