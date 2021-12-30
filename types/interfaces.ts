@@ -24,3 +24,8 @@ export interface IProgram {
   duration: string;
   content: string[];
 }
+
+export interface IQuote {
+  content: string;
+  author: string;
+}
