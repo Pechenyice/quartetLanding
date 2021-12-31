@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Home.module.css';
 import * as members from '@Members/index';
-import { FloorsDisplay, Intro, KvartetDisplay } from '@Components/index';
+import { Featuring, FloorsDisplay, Intro, KvartetDisplay } from '@Components/index';
 import { KvartetMember } from '@Types/index';
 
 const Home = ({ kvartet }: { kvartet: string }) => {
@@ -37,6 +37,8 @@ const Home = ({ kvartet }: { kvartet: string }) => {
       <FloorsDisplay floor={floor} />
       <Intro kvartet={_kvartet} />
       <KvartetDisplay kvartet={_kvartet} />
+      <Featuring />
+      <div style={{ height: '100vh' }}></div>
     </section>
   );
 };
