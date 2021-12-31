@@ -32,7 +32,7 @@
 .memberInner_active .memberImg {
   opacity: 1;
   transition: 0.5s;
-  transition-delay: 0.7s;
+  transition-delay: 0.5s;
 }
 
 .memberInner_active .memberDescriptionImage {
@@ -45,19 +45,19 @@
 .memberInner_active .memberName {
   opacity: 1;
   transition: 0.5s;
-  transition-delay: 1.3s;
+  transition-delay: 0.7s;
 }
 
 .memberInner_active .memberInstrument {
   opacity: 1;
   transition: 0.5s;
-  transition-delay: 1.5s;
+  transition-delay: 0.7s;
 }
 
 .memberInner_active .memberAbout {
   opacity: 1;
   transition: 0.5s;
-  transition-delay: 1.3s;
+  transition-delay: 0.7s;
 }
 
 .memberPreview {
