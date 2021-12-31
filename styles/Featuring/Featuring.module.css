@@ -1,0 +1,151 @@
+.wrapper {
+  font-family: Fog;
+  padding: 0 150px;
+  margin-bottom: 150px;
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+}
+
+.subscription {
+  font-weight: light;
+  font-size: 48px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 50px;
+  transition: 0.5s;
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.featuring_active .subscription {
+  transition: 1s;
+  transition-delay: 5s;
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.accentBox {
+  width: 200px;
+  height: 200px;
+  border-radius: 24px 8px;
+  overflow: hidden;
+  padding: 50px;
+  transition: 0.5s;
+}
+
+.featuring_active .accentBox {
+  background: var(--black);
+  transition: 0.5s;
+  animation-name: resizing;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes resizing {
+  0% {
+    width: 200px;
+    height: 200px;
+  }
+
+  45% {
+    width: 1000px;
+    height: 200px;
+  }
+
+  55% {
+    width: 1000px;
+    height: 200px;
+  }
+
+  100% {
+    width: 1000px;
+    height: 600px;
+  }
+}
+
+.starBox {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: var(--black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 24px;
+  transition: 0.5s;
+}
+
+.featuring_active .starBox {
+  background: var(--light);
+  transition: 0.5s;
+}
+
+.starContent {
+  position: relative;
+  width: 80%;
+  height: 80%;
+}
+
+.starName {
+  width: max-content;
+  margin: auto;
+  background: var(--light);
+  font-size: 24px;
+  border-radius: 8px 24px;
+  padding: 5px 12px;
+  font-weight: bold;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.featuring_active .starName {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: 3s;
+}
+
+.dividerVertical {
+  background: var(--light);
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 3px;
+  height: 0px;
+  transition: 0.5s;
+}
+
+.featuring_active .dividerVertical {
+  height: 75px;
+  transition: 0.5s;
+  transition-delay: 4.5s;
+}
+
+.textsBox {
+  display: flex;
+  height: 400px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--light);
+  font-size: 20px;
+  line-height: 24px;
+  padding: 0 50px;
+  transition: 0.5s;
+}
+
+.textsBox p {
+  width: 300px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.featuring_active .textsBox p {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: calc((var(--delay) + 3.5) * 1s);
+}
