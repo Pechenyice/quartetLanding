@@ -122,14 +122,14 @@
 
 .imageBox .logoBack {
   transform: scale(1.2);
-  transition-delay: 0.5s !important;
   transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .imageBox:hover .logoBack {
   transition: 0.5s;
-  transition-delay: 0s !important;
   transform: scale(1.3);
+  transition-delay: 0s;
 }
 
 .imageBox:hover .logoAddition_1,
