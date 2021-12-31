@@ -7,4 +7,6 @@ export enum Instrument {
 export enum Floor {
   'Clio quartet',
   'О нас',
+  'Партнеры',
+  'Выступления',
 }
