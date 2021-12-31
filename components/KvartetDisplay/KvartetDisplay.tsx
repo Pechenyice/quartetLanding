@@ -61,12 +61,8 @@ export default function KvartetDisplay({ kvartet }: IKvartet): JSX.Element {
         </div>
       </div>
       <div className={styles.memberDescription}>
-        <div className={styles.memberDescriptionImage}>
-          {/* <Image src={back} alt="member back" layout="fill" objectFit="contain" /> */}
-        </div>
+        <div className={styles.memberDescriptionImage}></div>
         <div className={styles.memberDescriptionText}>
-          {/* <h3 className={styles.memberName}>{m.name}</h3> */}
-          {/* <h6 className={styles.memberInstrument}>{m.instrument}</h6> */}
           <p className={styles.memberAbout}>{m.about}</p>
         </div>
       </div>
