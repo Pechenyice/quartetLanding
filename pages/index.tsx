@@ -24,7 +24,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     sections.reverse();
     document.addEventListener('scroll', () => {
       for (let section in sections) {
-        if (sections[section].getBoundingClientRect().top <= 0) {
+        if (sections[section].getBoundingClientRect().top <= screen.height / 2) {
           setFloor(sections.length - 1 - +section);
           return;
         }
