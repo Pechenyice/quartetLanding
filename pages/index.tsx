@@ -39,6 +39,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
       <KvartetDisplay kvartet={_kvartet} />
       <Featuring />
       <Gallery />
+      <div style={{ height: '100vh' }}></div>
     </section>
   );
 };
