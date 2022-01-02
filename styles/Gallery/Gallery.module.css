@@ -128,9 +128,9 @@
 
 .archive_active .branch .case {
   transform: translateY(0px);
-  transition: 0.7s;
+  transition: 2s;
   transition-delay: calc(var(--delay) * 1s + 0.5s);
-  transition-timing-function: ease-in-out;
+  transition-timing-function: cubic-bezier(0.22, 0.85, 0.01, 0.99);
 }
 
 .gallery_active .subscriptionArchive {
