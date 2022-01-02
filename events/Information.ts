@@ -1,9 +1,9 @@
 import { IInformation } from '@Types/interfaces';
 
 const Information: IInformation = {
-  name: 'Новое выступление',
+  name: 'Концерт имени Шостаковича',
   location: 'Мариинка',
-  date: '19 ноября',
+  date: '24 февраля',
   price: 200,
 };
 
