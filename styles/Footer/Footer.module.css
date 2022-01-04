@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  height: 40vh;
+  background: var(--black);
+  color: var(--light);
+  padding: 0 300px;
+  padding-top: 50px;
+  font-family: Fog;
+}
+
+.reminder {
+  text-align: center;
+  font-size: 48px;
+  height: 50px;
+}
+
+.quartet {
+  width: 100%;
+  height: calc(100% - 100px);
+  margin-top: 20px;
+  display: flex;
+}
+
+.member {
+  position: relative;
+  height: 100%;
+  width: 20%;
+}
