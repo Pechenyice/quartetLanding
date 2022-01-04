@@ -5,7 +5,15 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Home.module.css';
 import * as members from '@Members/index';
-import { Featuring, FloorsDisplay, Gallery, Intro, KvartetDisplay } from '@Components/index';
+import {
+  Featuring,
+  FloorsDisplay,
+  Footer,
+  Gallery,
+  Intro,
+  KvartetDisplay,
+  Media,
+} from '@Components/index';
 import { KvartetMember } from '@Types/index';
 
 const Home = ({ kvartet }: { kvartet: string }) => {
@@ -20,12 +28,12 @@ const Home = ({ kvartet }: { kvartet: string }) => {
   }, [kvartet]);
 
   useEffect(() => {
-    let sections = Array.from(app.current?.children);
+    let sections = Array.from(app.current?.children).filter((s) => s.localName === 'section');
     sections.reverse();
     document.addEventListener('scroll', () => {
       for (let section in sections) {
         if (sections[section].getBoundingClientRect().top <= screen.height / 2) {
-          setFloor(sections.length - 1 - +section);
+          setFloor(sections.length - +section);
           return;
         }
       }
@@ -39,7 +47,8 @@ const Home = ({ kvartet }: { kvartet: string }) => {
       <KvartetDisplay kvartet={_kvartet} />
       <Featuring />
       <Gallery />
-      <div style={{ height: '100vh' }}></div>
+      <Media />
+      <Footer kvartet={_kvartet} />
     </section>
   );
 };
