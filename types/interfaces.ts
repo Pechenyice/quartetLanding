@@ -1,3 +1,4 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { KvartetMember } from '.';
 import { Instrument } from './enums';
 
@@ -28,4 +29,10 @@ export interface IProgram {
 export interface IQuote {
   content: string;
   author: string;
+}
+
+export interface IMedia {
+  icon: IconDefinition;
+  link: string;
+  activeColor: string;
 }
