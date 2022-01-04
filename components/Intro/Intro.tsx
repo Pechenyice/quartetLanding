@@ -7,6 +7,13 @@ import back from '@Public/back.png';
 import violin from '@Public/violin.png';
 
 export default function Intro({ kvartet }: IKvartet): JSX.Element {
+  function handleInterest() {
+    window.scrollBy({
+      top: screen.height,
+      behavior: 'smooth',
+    });
+  }
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.main}>
@@ -39,7 +46,9 @@ export default function Intro({ kvartet }: IKvartet): JSX.Element {
           <Image src={violin} alt="logo main" />
         </div>
       </div>
-      <div className={styles.button}>Заинтересованы?</div>
+      <div className={styles.button} onClick={handleInterest}>
+        Заинтересованы?
+      </div>
     </section>
   );
 }
