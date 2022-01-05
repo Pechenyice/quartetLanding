@@ -23,7 +23,7 @@
 
 .featuring_active .subscription {
   transition: 1s;
-  transition-delay: 5s;
+  transition-delay: 3.5s;
   transform: translateY(0px);
   opacity: 1;
 }
@@ -41,8 +41,8 @@
   background: var(--black);
   transition: 0.5s;
   animation-name: resizing;
-  animation-delay: 1s;
-  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   animation-fill-mode: forwards;
 }
@@ -109,7 +109,7 @@
 .featuring_active .starName {
   opacity: 1;
   transition: 0.5s;
-  transition-delay: 3s;
+  transition-delay: 1.5s;
 }
 
 .dividerVertical {
@@ -124,7 +124,7 @@
 .featuring_active .dividerVertical {
   height: 75px;
   transition: 0.5s;
-  transition-delay: 4.5s;
+  transition-delay: 3s;
 }
 
 .textsBox {
@@ -148,5 +148,5 @@
 .featuring_active .textsBox p {
   opacity: 1;
   transition: 0.5s;
-  transition-delay: calc((var(--delay) + 3.5) * 1s);
+  transition-delay: calc((var(--delay) + 2) * 1s);
 }
