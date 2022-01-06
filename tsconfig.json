@@ -19,14 +19,23 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["/*"],
+      "@": ["/"],
       "@Pages/*": ["pages/*"],
+      "@Pages": ["pages"],
       "@Components/*": ["components/*"],
+      "@Components": ["components"],
       "@Events/*": ["events/*"],
+      "@Events": ["events"],
       "@Members/*": ["members/*"],
+      "@Members": ["members"],
       "@Styles/*": ["styles/*"],
+      "@Styles": ["styles"],
       "@Types/*": ["types/*"],
+      "@Types": ["types"],
       "@Public/*": ["public/*"],
-      "@Utils/*": ["utils/*"]
+      "@Public": ["public"],
+      "@Utils/*": ["utils/*"],
+      "@Utils": ["utils"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
