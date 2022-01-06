@@ -3,8 +3,8 @@ import Image from 'next/image';
 import styles from '@Styles/Footer/Footer.module.css';
 import violin from '@Public/violin.png';
 import { IKvartet } from '@Types/interfaces';
-import { KvartetMember } from '@Types/index';
-import { withAssetPrefix } from '@Utils/index';
+import { KvartetMember } from '@Types';
+import { withAssetPrefix } from '@Utils';
 
 const Footer = ({ kvartet }: { kvartet: KvartetMember[] }) => {
   return (

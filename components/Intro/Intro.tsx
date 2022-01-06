@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { combineClasses } from '@Utils/index';
+import { combineClasses } from '@Utils';
 import { IKvartet } from '@Types/interfaces';
 import styles from '@Styles/Intro/Intro.module.css';
 import back from '@Public/back.png';

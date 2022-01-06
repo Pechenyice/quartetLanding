@@ -3,7 +3,7 @@ import React, { CSSProperties, useEffect } from 'react';
 import styles from '@Styles/KvartetDisplay/KvartetDisplay.module.css';
 import back from '@Public/back.png';
 import { IKvartet } from '@Types/interfaces';
-import { combineClasses, withAssetPrefix } from '@Utils/index';
+import { combineClasses, withAssetPrefix } from '@Utils';
 import { QuotesDisplay } from '..';
 
 export default function KvartetDisplay({ kvartet }: IKvartet): JSX.Element {

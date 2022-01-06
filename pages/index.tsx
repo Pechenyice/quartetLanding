@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Home.module.css';
-import * as members from '@Members/index';
+import * as members from '@Members';
 import {
   Featuring,
   FloorsDisplay,
@@ -13,8 +13,8 @@ import {
   Intro,
   KvartetDisplay,
   Media,
-} from '@Components/index';
-import { KvartetMember } from '@Types/index';
+} from '@Components';
+import { KvartetMember } from '@Types';
 
 const Home = ({ kvartet }: { kvartet: string }) => {
   let [_kvartet, setKvartet] = useState([] as KvartetMember[]);

@@ -4,7 +4,7 @@ import styles from '@Styles/Gallery/Gallery.module.css';
 import poster from '@Public/poster.jpg';
 import program from '@Events/Program';
 import information from '@Events/Information';
-import { combineClasses } from '@Utils/index';
+import { combineClasses } from '@Utils';
 
 const Gallery = () => {
   let galleryArea: Element = null as unknown as Element;

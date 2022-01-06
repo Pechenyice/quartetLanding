@@ -2,7 +2,7 @@ import React, { CSSProperties, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '@Styles/Featuring/Featuring.module.css';
 import violin from '@Public/violin.png';
-import { combineClasses } from '@Utils/index';
+import { arrayBuffer } from 'stream/consumers';
 
 const Featuring = () => {
   let featuringArea: Element = null as unknown as Element;

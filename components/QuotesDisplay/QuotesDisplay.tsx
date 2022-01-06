@@ -3,7 +3,7 @@ import styles from '@Styles/QuotesDisplay/QuotesDisplay.module.css';
 import { quotes } from 'quotes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
-import { combineClasses } from '@Utils/index';
+import { combineClasses } from '@Utils';
 
 const QuotesDisplay = () => {
   let quotesArea: Element = null as unknown as Element;
