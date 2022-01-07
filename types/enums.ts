@@ -11,3 +11,9 @@ export enum Floor {
   'Выступления',
   'Наши медиа',
 }
+
+export enum Navigation {
+  'Clio quartet' = 0,
+  'Наша команда' = 1,
+  'О нас' = 2,
+}
