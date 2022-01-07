@@ -35,7 +35,9 @@
       "@Public/*": ["public/*"],
       "@Public": ["public"],
       "@Utils/*": ["utils/*"],
-      "@Utils": ["utils"]
+      "@Utils": ["utils"],
+      "@Screens/*": ["screens/*"],
+      "@Screens": ["screens"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

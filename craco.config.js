@@ -12,6 +12,7 @@ module.exports = {
       '@Types': path.resolve(__dirname, 'types'),
       '@Public': path.resolve(__dirname, 'public'),
       '@Utils': path.resolve(__dirname, 'utils'),
+      '@SCreens': path.resolve(__dirname, 'screens'),
     },
   },
 };
