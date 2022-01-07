@@ -1,0 +1,44 @@
+.wrapper {
+  position: absolute;
+  bottom: 30px;
+  right: 150px;
+  font-family: Fog;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 32px;
+  color: #ffffff;
+  display: flex;
+  gap: 25px;
+}
+
+.nav {
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.number {
+  text-align: center;
+}
+
+.name {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.nav_active {
+  width: 150px;
+  transition: 0.5s;
+}
+
+.nav_active .name {
+  opacity: 1;
+  transition: 0.5s;
+}
