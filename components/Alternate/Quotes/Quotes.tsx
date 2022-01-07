@@ -1,7 +1,6 @@
 import React from 'react';
-
 import Image from 'next/Image';
-import styles from '@Styles/Alternate/Main/Main.module.css';
+import styles from '@Styles/Alternate/Quotes/Quotes.module.css';
 import { combineClasses } from '@Utils';
 import ellipse from '@Public/mainPageEllipse.png';
 import star from '@Public/star.png';
