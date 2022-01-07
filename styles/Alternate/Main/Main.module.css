@@ -1,0 +1,73 @@
+.wrapper {
+  background: url('./../../../public/backgroundFilter.png'),
+    linear-gradient(107.56deg, #2a313c 12.81%, #bd8f75 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+
+.heading {
+  width: 900px;
+  margin-left: 150px;
+  padding-top: calc(50vh - 100px);
+  font-family: Fog;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 95px;
+  line-height: 121px;
+  color: #ffffff;
+}
+
+.images {
+  position: absolute;
+  height: 75%;
+  left: 150px;
+  right: 150px;
+  top: 10%;
+}
+
+.violin {
+  position: absolute;
+  right: 150px;
+  top: 0;
+  width: 290px;
+  height: 100%;
+}
+
+.ellipse {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px);
+}
+
+.star_left {
+  position: absolute;
+  top: 220px;
+  left: -15px;
+  width: 45px;
+  height: 45px;
+}
+
+.star_rightBig {
+  position: absolute;
+  bottom: 0px;
+  right: 120px;
+  width: 85px;
+  height: 85px;
+  z-index: 1;
+}
+
+.star_rightSmall {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+  width: 30px;
+  height: 30px;
+}
+
+.inactive {
+  filter: brightness(0.5);
+  transition: 0.5s;
+}
