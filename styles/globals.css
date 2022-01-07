@@ -31,6 +31,12 @@ span {
   --light: #fff7ed;
 }
 
+.appScreen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 @font-face {
   font-family: Fog;
   src: url('./fonts/FoglihtenNo06/FoglihtenNo06_076.otf') format('opentype');
