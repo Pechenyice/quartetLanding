@@ -1,6 +1,7 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import React from 'react';
 import { KvartetMember } from '.';
-import { Instrument } from './enums';
+import { Instrument, Navigation } from './enums';
 
 export interface IKvartetMember {
   name: string;
@@ -35,4 +36,21 @@ export interface IMedia {
   icon: IconDefinition;
   link: string;
   activeColor: string;
+}
+
+export interface IScreenManager {
+  activeScreen: number;
+  nextScreen: number | null;
+  isSwapping: boolean;
+  animationDuration: number;
+  sibling: ReturnType<typeof setTimeout> | null;
+}
+
+export interface IScreenProps {
+  isActive: boolean;
+}
+
+export interface IScreen {
+  component: (props: IScreenProps) => JSX.Element;
+  navigation: Navigation;
 }
