@@ -37,7 +37,11 @@
       "@Utils/*": ["utils/*"],
       "@Utils": ["utils"],
       "@Screens/*": ["screens/*"],
-      "@Screens": ["screens"]
+      "@Screens": ["screens"],
+      "@Members/*": ["members/*"],
+      "@Members": ["members"],
+      "@HOC/*": ["HOC/*"],
+      "@HOC": ["HOC"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
