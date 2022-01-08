@@ -55,7 +55,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
   }, [screenManager.activeScreen]);
 
   function wheelManager(e: WheelEvent) {
-    if (e.deltaY < 0) {
+    if (e.deltaY > 0) {
       setNewScreen(screenManager.activeScreen + 1);
     } else {
       setNewScreen(screenManager.activeScreen - 1);
