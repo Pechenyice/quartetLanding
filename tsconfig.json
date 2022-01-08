@@ -41,7 +41,11 @@
       "@Members/*": ["members/*"],
       "@Members": ["members"],
       "@HOC/*": ["HOC/*"],
-      "@HOC": ["HOC"]
+      "@HOC": ["HOC"],
+      "@Quotes/*": ["quotes/*"],
+      "@Quotes": ["quotes"],
+      "@Media/*": ["media/*"],
+      "@Media": ["media"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

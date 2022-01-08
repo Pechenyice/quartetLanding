@@ -15,6 +15,9 @@ module.exports = {
       '@Screens': path.resolve(__dirname, 'screens'),
       '@HOC': path.resolve(__dirname, 'HOC'),
       '@Members': path.resolve(__dirname, 'members'),
+
+      '@Quotes': path.resolve(__dirname, 'quotes'),
+      '@Media': path.resolve(__dirname, 'media'),
     },
   },
 };
