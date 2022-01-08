@@ -8,4 +8,5 @@ export { default as Media } from './Media/Media';
 export { default as Footer } from './Footer/Footer';
 export { default as Main } from './Alternate/Main/Main';
 export { default as Quotes } from './Alternate/Quotes/Quotes';
+export { default as Member } from './Alternate/Member/Member';
 export { default as Navigation } from './Alternate/Navigation/Navigation';
