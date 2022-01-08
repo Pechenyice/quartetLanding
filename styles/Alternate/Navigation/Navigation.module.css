@@ -12,33 +12,55 @@
 }
 
 .nav {
-  width: 20px;
+  min-width: 25px;
+  max-width: 25px;
   display: flex;
   justify-content: center;
   transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .number {
+  font-family: Fog;
+  font-style: normal;
+  font-weight: light;
   text-align: center;
+  line-height: 64px;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.nav_active .number {
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 64px;
+  transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .name {
+  width: max-content;
+  text-align: center;
   font-family: Gilroy;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 26px;
   text-transform: uppercase;
+  transform: translateY(20px);
   opacity: 0;
   transition: 0.5s;
 }
 
 .nav_active {
-  width: 150px;
+  max-width: 150px;
   transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .nav_active .name {
   opacity: 1;
+  transform: translateY(0px);
   transition: 0.5s;
+  transition-delay: 1s;
 }
