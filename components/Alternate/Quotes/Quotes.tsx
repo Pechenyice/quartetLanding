@@ -5,30 +5,19 @@ import { combineClasses } from '@Utils';
 import ellipse from '@Public/mainPageEllipse.png';
 import star from '@Public/star.png';
 import violin from '@Public/violin.png';
+import { IMemberScreenProps } from '@Types/interfaces';
 
-const Quotes = () => {
+const Quotes = ({ isActive, member }: IMemberScreenProps) => {
   return (
-    <section className={combineClasses(styles.wrapper, 'appScreen')}>
-      <h2 className={styles.heading}>
-        <span>test</span>
-        <span> test </span>
-        <span>test</span>
-      </h2>
-      <div className={styles.images}>
-        <div className={styles.ellipse}>
-          <Image src={ellipse} layout="fill" objectFit="contain" />
-        </div>
-        <div className={combineClasses(styles.star, styles.star_left)}>
-          <Image src={star} layout="fill" objectFit="contain" />
-        </div>
-        <div className={combineClasses(styles.star, styles.star_rightBig)}>
-          <Image src={star} layout="fill" objectFit="contain" />
-        </div>
-        <div className={combineClasses(styles.star, styles.star_rightSmall)}>
-          <Image src={star} layout="fill" objectFit="contain" />
-        </div>
-        <div className={styles.violin}>
-          <Image src={violin} layout="fill" objectFit="contain" />
+    <section
+      className={combineClasses(styles.wrapper, 'appScreen', !isActive ? styles.inactive : '')}
+    >
+      <div className={styles.animator}>
+        <div>
+          <div>
+            <Image src={member.preview} layout="fill" objectFit="contain" />
+          </div>
+          <div></div>
         </div>
       </div>
     </section>
