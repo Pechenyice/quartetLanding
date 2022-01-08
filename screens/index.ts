@@ -1,6 +1,8 @@
-import { Main, Quotes } from '@Components';
+import { Main, Member, Quotes } from '@Components';
+import { Polina } from '@Members';
 import { Navigation } from '@Types/enums';
 import { IScreen } from '@Types/interfaces';
+import { withMemberData } from 'HOC';
 
 const screens: IScreen[] = [
   {
@@ -8,7 +10,7 @@ const screens: IScreen[] = [
     navigation: Navigation['Clio quartet'],
   },
   {
-    component: Quotes,
+    component: withMemberData(Member, Polina),
     navigation: Navigation['Наша команда'],
   },
 ];
