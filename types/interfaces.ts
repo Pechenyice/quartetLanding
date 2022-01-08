@@ -50,6 +50,10 @@ export interface IScreenProps {
   isActive: boolean;
 }
 
+export interface IMemberScreenProps extends IScreenProps {
+  member: IKvartetMember;
+}
+
 export interface IScreen {
   component: (props: IScreenProps) => JSX.Element;
   navigation: Navigation;
