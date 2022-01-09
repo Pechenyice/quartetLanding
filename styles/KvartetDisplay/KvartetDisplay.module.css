@@ -1,0 +1,174 @@
+.displayWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: max-content;
+  padding: 0 150px;
+  padding-top: 300px;
+}
+
+.memberInner {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  margin-bottom: 150px;
+}
+
+.memberInner_rightAligned {
+  flex-flow: row-reverse;
+}
+
+.memberInner_active .memberBack {
+  opacity: 1;
+  transition: 0.5s;
+  transform: scale(1);
+}
+
+.memberInner_active .memberImg {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.memberInner_active .memberDescriptionImage {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.5s;
+  transition-delay: 1s;
+}
+
+.memberInner_active .memberName {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: 0.7s;
+}
+
+.memberInner_active .memberInstrument {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: 0.7s;
+}
+
+.memberInner_active .memberAbout {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: 0.7s;
+}
+
+.memberPreview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 600px;
+  margin: 100px 0;
+}
+
+.memberBack {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s;
+  transition-delay: 1.5s;
+}
+
+.memberImg {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  margin-top: -200px;
+  filter: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0.8s;
+}
+
+.memberDescription {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memberDescriptionImage {
+  position: absolute;
+  left: -100px;
+  top: -100px;
+  z-index: 0;
+  width: calc(100% + 200px);
+  height: calc(100% + 200px);
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.memberImageName {
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: max-content;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  color: white;
+  background: var(--black);
+  font-size: 24px;
+  border-radius: 24px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Fog;
+  font-weight: normal;
+}
+
+.memberDescriptionText {
+  position: relative;
+  z-index: 1;
+  font-family: Fog;
+  border-radius: 8px 24px;
+  padding: 24px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+}
+
+.memberName {
+  margin-bottom: 0px;
+  font-size: 36px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+
+.memberInstrument {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+
+.memberAbout {
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0s;
+}
