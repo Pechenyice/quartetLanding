@@ -1,7 +1,4 @@
 import React, { useRef } from "react";
-import type { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "@Styles/Home.module.css";
 import * as members from "@Members";
