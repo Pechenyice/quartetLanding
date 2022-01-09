@@ -1,36 +1,58 @@
-import { Main, Member, Quotes } from '@Components';
-import { Alex, Polina, PolinaK, Varvara } from '@Members';
+import { Events, Main, Member, Quotes } from "@Components";
+import { Alex, Polina, PolinaK, Varvara } from "@Members";
 import {
-  PolinaDecorators,
-  PolinaKDecorators,
-  VarvaraDecorators,
-  AlexDecorators,
-} from '@Members/decorators';
-import { Navigation } from '@Types/enums';
-import { IScreen } from '@Types/interfaces';
-import { withMemberData } from 'HOC';
+	PolinaDecorators,
+	PolinaKDecorators,
+	VarvaraDecorators,
+	AlexDecorators,
+} from "@Members/decorators";
+import { Navigation } from "@Types/enums";
+import { IScreen } from "@Types/interfaces";
+import { eventsDecorators, quotesDecorators } from "@Decorators";
+import { withMemberData, withOptions } from "HOC";
+import { formatWithOptions } from "util";
 
 const screens: IScreen[] = [
-  {
-    component: Main,
-    navigation: Navigation['Clio quartet'],
-  },
-  {
-    component: withMemberData(Member, Polina, { reversed: false, decorators: PolinaDecorators }),
-    navigation: Navigation['Наша команда'],
-  },
-  {
-    component: withMemberData(Member, Alex, { reversed: true, decorators: AlexDecorators }),
-    navigation: Navigation['Наша команда'],
-  },
-  {
-    component: withMemberData(Member, PolinaK, { reversed: false, decorators: PolinaKDecorators }),
-    navigation: Navigation['Наша команда'],
-  },
-  {
-    component: withMemberData(Member, Varvara, { reversed: true, decorators: VarvaraDecorators }),
-    navigation: Navigation['Наша команда'],
-  },
+	{
+		component: Main,
+		navigation: Navigation["Clio quartet"],
+	},
+	{
+		component: withMemberData(Member, Polina, {
+			reversed: false,
+			decorators: PolinaDecorators,
+		}),
+		navigation: Navigation["Наша команда"],
+	},
+	{
+		component: withMemberData(Member, Alex, {
+			reversed: true,
+			decorators: AlexDecorators,
+		}),
+		navigation: Navigation["Наша команда"],
+	},
+	{
+		component: withMemberData(Member, PolinaK, {
+			reversed: false,
+			decorators: PolinaKDecorators,
+		}),
+		navigation: Navigation["Наша команда"],
+	},
+	{
+		component: withMemberData(Member, Varvara, {
+			reversed: true,
+			decorators: VarvaraDecorators,
+		}),
+		navigation: Navigation["Наша команда"],
+	},
+	{
+		component: withOptions(Quotes, { decorators: quotesDecorators }),
+		navigation: Navigation["О нас"],
+	},
+	{
+		component: withOptions(Events, { decorators: eventsDecorators }),
+		navigation: Navigation["Выступления"],
+	},
 ];
 
 const getScreen = (index: number) => screens[index];
