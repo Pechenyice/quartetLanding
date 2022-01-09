@@ -1,0 +1,144 @@
+.wrapper {
+  background: linear-gradient(336.33deg, #2a313c 14.43%, #bd8f75 103.07%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+
+.animator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('./../../../public/backgroundFilter.png'), rgba(42, 49, 60, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inactive .animator {
+  background: url('./../../../public/backgroundFilter.png'), rgba(42, 49, 60, 1);
+  transition: 0.5s;
+}
+
+.links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 150px;
+}
+
+.link a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  color: #bd8f75;
+  background: #2a313c;
+  border-radius: 40px 10px;
+  font-size: 48px;
+  transform: scale(calc(var(--scale) + 1)) translateY(0px);
+  opacity: 1;
+  transition: 1s;
+  transition-delay: calc(var(--delay) * 1s);
+}
+
+.inactive .link {
+  transition: 1s;
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.link:hover {
+  transition: 0.3s;
+  transform: scale(calc(var(--scale) + 1)) translateY(-10px);
+}
+
+.link:nth-child(even) {
+  border-radius: 10px 40px;
+}
+
+.linkHint {
+  position: absolute;
+  bottom: -40px;
+  left: auto;
+  right: auto;
+  width: 200px;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.5s;
+}
+
+.link:hover .linkHint {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.heading {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 60px;
+  font-family: Fog;
+  font-weight: 500;
+  font-size: 55px;
+  line-height: 70px;
+  color: #ffffff;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 1s;
+  transition-delay: 1s;
+}
+
+.inactive .heading {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+  transition-delay: 1s;
+}
+
+.images {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 83px;
+}
+
+.image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s;
+  transition-delay: calc(var(--delay) * 1s);
+}
+
+.inactive .image {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+  transition-delay: calc(var(--delay) * 1s);
+}
