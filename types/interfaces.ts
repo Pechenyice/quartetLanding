@@ -10,6 +10,19 @@ export interface IKvartetMember {
   about: string;
 }
 
+export interface IMemberDecorator {
+  position: {
+    top?: number;
+    left?: number;
+    right?: number;
+    bottom?: number;
+  };
+  width: number;
+  height: number;
+  color: string;
+  opacity?: number;
+}
+
 export interface IKvartet {
   kvartet: KvartetMember[];
 }
@@ -52,6 +65,12 @@ export interface IScreenProps {
 
 export interface IMemberScreenProps extends IScreenProps {
   member: IKvartetMember;
+  options: IMemberScreenOptions;
+}
+
+export interface IMemberScreenOptions {
+  reversed: boolean;
+  decorators: IMemberDecorator[];
 }
 
 export interface IScreen {
