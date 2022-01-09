@@ -22,20 +22,40 @@
 }
 
 .nav_active {
-  max-width: 150px;
+  width: 130px;
+  margin-left: 10px;
+  margin-right: 10px;
   transition: 1s;
   transition-delay: 0.5s;
 }
 
 .number {
+  width: max-content;
+  margin: auto;
+  position: relative;
   font-family: Fog;
   font-style: normal;
   font-weight: light;
   text-align: center;
   line-height: 64px;
-  transition: 1s;
   transition-timing-function: ease;
-  transition-delay: 0.5s;
+  transition-property: font-size, color;
+  transition-duration: 1s, 1s;
+  transition-delay: 0.5s, 0s;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.number:hover {
+  transition: 1s;
+  transition-delay: 0s;
+  color: #bd8f75;
+}
+
+.nav_active .number:hover {
+  transition: 1s;
+  transition-delay: 0s;
+  color: inherit;
 }
 
 .colored .nav_active .number {
