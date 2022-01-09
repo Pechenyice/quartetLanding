@@ -73,7 +73,6 @@ const Home = ({ kvartet }: { kvartet: string }) => {
   }
 
   function clickManager(index: number) {
-    console.log(index);
     setNewScreen(index);
   }
 
