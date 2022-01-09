@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Alternate/Alternate.module.css';
-import * as members from '@Members';
+import * as members from '@Members/serializable';
 import { Navigation } from '@Components';
 import { KvartetMember } from '@Types';
 import { Navigation as navigation } from '@Types/enums';
@@ -19,7 +19,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     activeScreen: 0,
     nextScreen: null,
     isSwapping: false,
-    animationDuration: 3000,
+    animationDuration: 2000,
     sibling: null,
   } as IScreenManager);
 
@@ -69,10 +69,10 @@ const Home = ({ kvartet }: { kvartet: string }) => {
       <ActiveScreen.component isActive={!screenManager.isSwapping} />
       <Navigation
         activePoint={
-          screenManager.nextScreen ||
-          (screenManager.isSwapping &&
-            !screenManager.nextScreen &&
-            ('0' as unknown as navigation)) ||
+          // screenManager.nextScreen ||
+          // (screenManager.isSwapping &&
+          //   !screenManager.nextScreen &&
+          //   ('0' as unknown as navigation)) ||
           ActiveScreen.navigation
         }
       />
