@@ -12,8 +12,8 @@ const circles: IMemberDecorator[] = [
   },
   {
     position: {
-      bottom: -192,
-      left: -192,
+      top: -120,
+      right: -170,
     },
     width: 568,
     height: 568,
