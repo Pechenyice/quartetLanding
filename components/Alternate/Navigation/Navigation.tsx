@@ -5,7 +5,7 @@ import { combineClasses } from '@Utils';
 
 const Navigation = ({ activePoint }: { activePoint: navigation }) => {
   return (
-    <section className={styles.wrapper}>
+    <section className={combineClasses(styles.wrapper, +activePoint ? styles.colored : '')}>
       {Object.keys(navigation)
         .filter((value) => !isNaN(+value))
         .map((value, i) => (
