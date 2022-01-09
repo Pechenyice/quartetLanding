@@ -25,9 +25,9 @@ const VersionManager = () => {
           <path
             d="M24.5 9L1 9M1 9C1 9 4.31277 7.92003 5.97778 6.53846C7.99134 4.86768 9.71111 1 9.71111 1M1 9C1 9 4.31277 10.08 5.97778 11.4615C7.99134 13.1323 9.71111 17 9.71111 17"
             stroke="white"
-            stroke-width="1.5"
-            stroke-linecap="square"
-            stroke-linejoin="bevel"
+            strokeWidth="1.5"
+            strokeLinecap="square"
+            strokeLinejoin="bevel"
           />
         </svg>
       </button>
