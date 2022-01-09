@@ -233,3 +233,63 @@
   transform: translateY(50px);
   opacity: 0;
 }
+
+.hint {
+  position: absolute;
+  bottom: 55px;
+  left: calc(50% - 145px);
+  width: 290px;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.hint p {
+  color: white;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: right;
+  text-transform: uppercase;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+
+.hint svg:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+
+.hint svg:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.inactive .hint svg:nth-child(1) {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+}
+
+.inactive p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+
+.inactive .hint svg:nth-child(3) {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
