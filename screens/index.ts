@@ -1,14 +1,11 @@
 import { Main, Member, Quotes } from '@Components';
+import { Alex, Polina, PolinaK, Varvara } from '@Members';
 import {
-  Alex,
-  Polina,
-  PolinaK,
-  Varvara,
   PolinaDecorators,
   PolinaKDecorators,
   VarvaraDecorators,
   AlexDecorators,
-} from '@Members';
+} from '@Members/decorators';
 import { Navigation } from '@Types/enums';
 import { IScreen } from '@Types/interfaces';
 import { withMemberData } from 'HOC';

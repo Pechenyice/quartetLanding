@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Alternate/Alternate.module.css';
-import * as members from '@Members/serializable';
+import * as members from '@Members';
 import { Navigation } from '@Components';
 import { KvartetMember } from '@Types';
 import { Navigation as navigation } from '@Types/enums';
