@@ -1,0 +1,79 @@
+.wrapper {
+  position: absolute;
+  bottom: 48px;
+  left: 150px;
+}
+
+.activator {
+  all: unset;
+  width: 55px;
+  height: 55px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  border-radius: 20px 6px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.activator:hover {
+  background: white;
+  transition: 0.3s;
+}
+
+.activator path {
+  stroke: white;
+  transition: 0.3s;
+}
+
+.activator:hover path {
+  stroke: black;
+  transition: 0.3s;
+}
+
+.hint {
+  position: absolute;
+  width: 230px;
+  height: 55px;
+  right: -250px;
+  top: 0;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 55px;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+  transition-delay: 0.3s;
+}
+
+.activator:hover ~ .hint {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.5s;
+  transition-delay: 0.3s;
+}
+
+.example .hint {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+
+.example .activator {
+  background: white;
+  transition: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.example .activator path {
+  stroke: black;
+  transition: 0.3s;
+  transition-delay: 0.3s;
+}
