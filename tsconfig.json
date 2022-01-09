@@ -38,14 +38,14 @@
       "@Utils": ["utils"],
       "@Screens/*": ["screens/*"],
       "@Screens": ["screens"],
-      "@Members/*": ["members/*"],
-      "@Members": ["members"],
       "@HOC/*": ["HOC/*"],
       "@HOC": ["HOC"],
       "@Quotes/*": ["quotes/*"],
       "@Quotes": ["quotes"],
       "@Media/*": ["media/*"],
-      "@Media": ["media"]
+      "@Media": ["media"],
+      "@Decorators/*": ["decorators/*"],
+      "@Decorators": ["decorators"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
