@@ -12,6 +12,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
 	useEffect(() => {
 		setKvartet(JSON.parse(kvartet));
 	}, [kvartet]);
+
 	return (
 		<>
 			<Intro kvartet={_kvartet} />
