@@ -37,6 +37,7 @@
 }
 
 .reversed .memberInner {
+  margin-left: 100px;
   flex-direction: row-reverse;
 }
 
@@ -47,7 +48,12 @@
   height: 600px;
 }
 
+.data {
+  width: 500px;
+}
+
 .info {
+  width: max-content;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -175,4 +181,16 @@
   transition: 0.5s;
   transition-delay: calc(var(--delay) * 1s);
   opacity: 1;
+}
+
+@media screen and (max-width: 1460px) {
+  .memberInner {
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .memberInner {
+    transform: scale(0.8);
+  }
 }
