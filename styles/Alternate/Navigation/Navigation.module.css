@@ -109,3 +109,17 @@
   transition-timing-function: ease;
   transition-delay: 1.5s;
 }
+
+@media screen and (max-width: 1360px) {
+  .wrapper {
+    transform: scale(0.9);
+    right: 100px;
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  .wrapper {
+    transform: scale(0.8);
+    right: 50px;
+  }
+}
