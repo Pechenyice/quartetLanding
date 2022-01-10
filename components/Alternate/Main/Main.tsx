@@ -25,42 +25,58 @@ const Main = ({ isActive }: IScreenProps) => {
       )}
     >
       <div className={styles.animator}>
-        <div className={styles.heading}>
-          <h2>Clio quartet,</h2>
-          <h2> который приятно </h2>
-          <h2>послушать</h2>
-        </div>
-        <div className={styles.images}>
-          <div className={styles.ellipse}>
-            <Image src={ellipse} layout="fill" />
+        <div className={styles.heightController}>
+          <div className={styles.heading}>
+            <h2>Clio quartet,</h2>
+            <h2> который приятно </h2>
+            <h2>послушать</h2>
           </div>
-          <div className={combineClasses(styles.star, styles.star_left)}>
-            <Image src={star} layout="fill" objectFit="contain" />
-          </div>
-          <div className={combineClasses(styles.star, styles.star_rightBig)}>
-            <Image src={star} layout="fill" objectFit="contain" />
-          </div>
-          <div className={combineClasses(styles.star, styles.star_rightSmall)}>
-            <Image src={star} layout="fill" objectFit="contain" />
-          </div>
-          <div className={styles.imageBox}>
-            <div
-              className={combineClasses(styles.logo, styles.logoAddition_1, styles.appearance_5)}
-            >
-              <Image src={violin} alt="logo main" />
+          <div className={styles.images}>
+            <div className={styles.ellipse}>
+              <Image src={ellipse} layout="fill" />
             </div>
-            <div
-              className={combineClasses(styles.logo, styles.logoAddition_2, styles.appearance_5)}
-            >
-              <Image src={violin} alt="logo main" />
+            <div className={combineClasses(styles.star, styles.star_left)}>
+              <Image src={star} layout="fill" objectFit="contain" />
             </div>
-            <div
-              className={combineClasses(styles.logo, styles.logoAddition_3, styles.appearance_5)}
-            >
-              <Image src={violin} alt="logo main" />
+            <div className={combineClasses(styles.star, styles.star_rightBig)}>
+              <Image src={star} layout="fill" objectFit="contain" />
             </div>
-            <div className={combineClasses(styles.logo, styles.appearance_5)}>
-              <Image src={violin} alt="logo main" />
+            <div className={combineClasses(styles.star, styles.star_rightSmall)}>
+              <Image src={star} layout="fill" objectFit="contain" />
+            </div>
+            <div className={styles.imageBox}>
+              <div className={styles.imageBoxResizer}>
+                <div
+                  className={combineClasses(
+                    styles.logo,
+                    styles.logoAddition_1,
+                    styles.appearance_5
+                  )}
+                >
+                  <Image src={violin} alt="logo main" />
+                </div>
+                <div
+                  className={combineClasses(
+                    styles.logo,
+                    styles.logoAddition_2,
+                    styles.appearance_5
+                  )}
+                >
+                  <Image src={violin} alt="logo main" />
+                </div>
+                <div
+                  className={combineClasses(
+                    styles.logo,
+                    styles.logoAddition_3,
+                    styles.appearance_5
+                  )}
+                >
+                  <Image src={violin} alt="logo main" />
+                </div>
+                <div className={combineClasses(styles.logo, styles.appearance_5)}>
+                  <Image src={violin} alt="logo main" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +89,16 @@ const Main = ({ isActive }: IScreenProps) => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect x="0.5" y="0.5" width="39" height="64" rx="19.5" stroke="white" />
-            <rect x="17.5" y="12.5" width="5" height="13" rx="2.5" fill="white" stroke="white" />
+            <rect
+              x="17.5"
+              y="12.5"
+              width="5"
+              height="13"
+              rx="2.5"
+              fill="white"
+              stroke="white"
+              className={styles.mouse}
+            />
           </svg>
           <p>Или</p>
           <svg
@@ -95,8 +120,24 @@ const Main = ({ isActive }: IScreenProps) => {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <rect x="34.874" y="0.5" width="30.25" height="30.4286" rx="3.5" stroke="white" />
-            <rect x="34.874" y="35.0714" width="30.25" height="30.4286" rx="3.5" stroke="white" />
+            <rect
+              x="34.874"
+              y="0.5"
+              width="30.25"
+              height="30.4286"
+              rx="3.5"
+              stroke="white"
+              className={styles.button}
+            />
+            <rect
+              x="34.874"
+              y="35.0714"
+              width="30.25"
+              height="30.4286"
+              rx="3.5"
+              stroke="white"
+              className={styles.button}
+            />
             <path
               d="M83.333 54.4761L86.458 50.2857L83.333 46.0952"
               stroke="white"
