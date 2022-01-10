@@ -77,3 +77,17 @@
   transition: 0.3s;
   transition-delay: 0.3s;
 }
+
+@media screen and (max-width: 1360px) {
+  .wrapper {
+    transform: scale(0.9);
+    left: 100px;
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  .wrapper {
+    transform: scale(0.8);
+    left: 50px;
+  }
+}
