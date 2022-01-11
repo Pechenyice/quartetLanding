@@ -20,6 +20,18 @@
   opacity: 0;
 }
 
+.line:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.line:nth-child(odd) {
+  flex-direction: row;
+}
+
+.line:last-child {
+  flex-direction: row;
+}
+
 @media screen and (max-width: 1200px) {
   .wrapper {
     overflow: hidden;
@@ -34,18 +46,6 @@
   .line {
     gap: 30px;
     margin-bottom: 25px;
-  }
-
-  .line:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  .line:nth-child(odd) {
-    flex-direction: row;
-  }
-
-  .line:last-child {
-    flex-direction: row;
   }
 
   .content {

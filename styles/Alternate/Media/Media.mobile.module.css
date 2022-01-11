@@ -22,6 +22,10 @@
   width: 100%;
 }
 
+.images {
+  margin: auto;
+}
+
 @media screen and (max-width: 1200px) {
   .wrapper {
     height: 650px;
