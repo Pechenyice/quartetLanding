@@ -88,6 +88,7 @@
   opacity: 0;
   transform: translateY(10px);
   transition: 0.5s;
+  pointer-events: none;
 }
 
 .link:hover .linkHint {
