@@ -80,14 +80,28 @@ const Quotes = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
               <div className={cascade.author}>{quotes[0].author}</div>
             </div>
             <div className={cascade.divider}></div>
-            <div className={cascade.quote}>
-              <div className={cascade.content}>{quotes[1].content}</div>
-              <div className={cascade.star}>
-                <Image src={star} layout="fill" objectFit="contain" />
+            {!isMobile && (
+              <div className={cascade.quote}>
+                <div className={cascade.content}>{quotes[1].content}</div>
+                <div className={cascade.star}>
+                  <Image src={star} layout="fill" objectFit="contain" />
+                </div>
+                <div className={cascade.author}>{quotes[1].author}</div>
               </div>
-              <div className={cascade.author}>{quotes[1].author}</div>
-            </div>
+            )}
           </div>
+          {isMobile && (
+            <div className={cascade.line}>
+              <div className={cascade.quote}>
+                <div className={cascade.content}>{quotes[1].content}</div>
+                <div className={cascade.star}>
+                  <Image src={star} layout="fill" objectFit="contain" />
+                </div>
+                <div className={cascade.author}>{quotes[1].author}</div>
+              </div>
+              <div className={cascade.divider}></div>
+            </div>
+          )}
           <div className={cascade.line}>
             <div className={cascade.quote}>
               <div className={cascade.content}>{quotes[2].content}</div>
