@@ -13,7 +13,7 @@ const decorators: IDecorator[] = [
   },
   {
     position: {
-      bottom: 100,
+      bottom: 150,
       left: 146,
     },
     width: 300,
@@ -23,7 +23,7 @@ const decorators: IDecorator[] = [
   },
   {
     position: {
-      bottom: 150,
+      bottom: 200,
       left: 290,
     },
     width: 450,

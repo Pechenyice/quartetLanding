@@ -13,21 +13,21 @@ const decorators: IDecorator[] = [
   },
   {
     position: {
-      bottom: 100,
+      bottom: 200,
       left: 680,
     },
-    width: 400,
-    height: 400,
+    width: 350,
+    height: 350,
     color: 'rgba(227, 169, 135, 0.9)',
     opacity: 0.4,
   },
   {
     position: {
-      bottom: 120,
+      bottom: 230,
       left: 790,
     },
-    width: 607,
-    height: 607,
+    width: 567,
+    height: 567,
     color: '#7B6866',
     opacity: 0.4,
   },
