@@ -1,0 +1,27 @@
+.wrapper {
+  position: fixed;
+  bottom: 15px;
+  right: 50px;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: 0.5s;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
