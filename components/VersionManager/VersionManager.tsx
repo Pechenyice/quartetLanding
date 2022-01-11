@@ -4,7 +4,7 @@ import { Presentation } from '@Types/enums';
 import { IVersionProps } from '@Types/interfaces';
 import { combineClasses } from '@Utils';
 
-const VersionManager = ({ onChangePresentation, textFor, fixed }: IVersionProps) => {
+const VersionManager = ({ onChangePresentation, textFor, fixed, isMobile }: IVersionProps) => {
   let wrapper = useRef(null as unknown as HTMLElement);
   useEffect(() => {
     setTimeout(() => {
@@ -16,7 +16,15 @@ const VersionManager = ({ onChangePresentation, textFor, fixed }: IVersionProps)
   }, []);
 
   return (
-    <section className={combineClasses(styles.wrapper, styles.fixed)} ref={wrapper}>
+    <section
+      className={combineClasses(
+        styles.wrapper,
+        styles.fixed,
+        isMobile ? styles.mobileHider : '',
+        isMobile ? styles.mobilePresentation : ''
+      )}
+      ref={wrapper}
+    >
       <button className={styles.activator} onClick={onChangePresentation}>
         <svg
           width="26"
