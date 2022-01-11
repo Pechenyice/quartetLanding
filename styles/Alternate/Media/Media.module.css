@@ -64,7 +64,7 @@
 
 .link:hover {
   transition: 0.3s;
-  transform: scale(calc(var(--scale) + 1)) translateY(-10px);
+  transform: scale(calc(var(--scale) + 1)) translateY(-5px);
 }
 
 .link:nth-child(even) {

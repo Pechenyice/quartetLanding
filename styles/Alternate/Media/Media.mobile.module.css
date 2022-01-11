@@ -1,0 +1,19 @@
+.wrapper {
+  overflow: visible;
+  background: #2a313c;
+}
+
+.decorator {
+  filter: blur(50px) opacity(var(--opacity));
+}
+
+.link {
+  background: #bd8f75;
+  color: #2a313c;
+  border: 2px solid #bd8f75;
+}
+
+.link:hover {
+  background: #2a313c;
+  color: #bd8f75;
+}
