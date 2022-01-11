@@ -17,12 +17,13 @@
 .heading {
   position: relative;
   z-index: 5;
-  width: 900px;
+  width: max-content;
   margin-left: 150px;
   padding-top: calc(50vh - 120px);
 }
 
 .heading h2 {
+  width: max-content;
   font-family: Fog;
   font-style: normal;
   font-weight: 500;
@@ -402,7 +403,7 @@
 }
 
 @media screen and (max-width: 1200px) and (max-height: 950px) {
-  .heightController {
+  .sizeController {
     transform: scale(0.8);
   }
 
@@ -416,13 +417,13 @@
 }
 
 @media screen and (max-width: 1200px) and (max-height: 800px) {
-  .heightController {
+  .sizeController {
     transform: scale(0.7);
   }
 }
 
 @media screen and (max-width: 1200px) and (max-height: 700px) {
-  .heightController {
+  .sizeController {
     transform: scale(0.6);
   }
 
