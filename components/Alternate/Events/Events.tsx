@@ -1,34 +1,59 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Events/Events.module.css';
-import { combineClasses } from '@Utils';
-import { IScreenWithOptionsProps } from '@Types/interfaces';
+import mobileStyles from '@Styles/Alternate/Events/Events.mobile.module.css';
+import { combineClasses, createCascade } from '@Utils';
+import { ICascadeStyles, IScreenWithOptionsProps } from '@Types/interfaces';
 import Program from '@Events/Program';
 import Information from '@Events/Information';
 import poster from '@Public/poster.png';
 
-const Events = ({ isActive, options }: IScreenWithOptionsProps) => {
+const Events = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
+  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+
   let [appeared, setAppeared] = useState(false);
 
-  useEffect(() => {
-    let appearance = setTimeout(() => setAppeared(true), 300);
+  let wrapper = useRef(null as unknown as HTMLElement);
 
-    return () => clearTimeout(appearance);
+  useEffect(() => {
+    let appearance: any = -1;
+    if (!isMobile) {
+      appearance = setTimeout(() => setAppeared(true), 300);
+    } else {
+      document.addEventListener('scroll', AnimatorController);
+      AnimatorController();
+    }
+
+    return () => {
+      clearTimeout(appearance);
+      document.removeEventListener('scroll', AnimatorController);
+    };
   }, []);
+
+  function AnimatorController() {
+    if (wrapper.current?.getBoundingClientRect().top < window.innerHeight / 2) {
+      setAppeared(true);
+    }
+
+    if (wrapper.current?.getBoundingClientRect().top >= window.innerHeight) {
+      setAppeared(false);
+    }
+  }
 
   return (
     <section
       className={combineClasses(
-        styles.wrapper,
+        cascade.wrapper,
         'appScreen',
-        !isActive || !appeared ? styles.inactive : '',
-        !appeared ? styles.entering : ''
+        !isActive || !appeared ? cascade.inactive : '',
+        !appeared ? cascade.entering : ''
       )}
+      ref={wrapper}
     >
       {options.decorators.map((d, i) => (
         <div
           key={`decorator-${i}`}
-          className={styles.decorator}
+          className={cascade.decorator}
           style={
             {
               '--width': d.width + 'px',
@@ -46,64 +71,64 @@ const Events = ({ isActive, options }: IScreenWithOptionsProps) => {
           }
         ></div>
       ))}
-      <div className={styles.animator}>
-        <div className={styles.block}>
-          <h3 className={styles.blockName}>Следующее выступление</h3>
-          <div className={styles.content}>
-            <div className={styles.info}>
+      <div className={cascade.animator}>
+        <div className={cascade.block}>
+          <h3 className={cascade.blockName}>Следующее выступление</h3>
+          <div className={cascade.content}>
+            <div className={cascade.info}>
               <div
-                className={styles.elem}
+                className={cascade.elem}
                 style={{ '--delay': '0s', '--translation': '50px' } as CSSProperties}
               >
-                <h4 className={styles.elemName}>Название программы</h4>
-                <p className={styles.elemContent}>{Program.name}</p>
+                <h4 className={cascade.elemName}>Название программы</h4>
+                <p className={cascade.elemContent}>{Program.name}</p>
               </div>
               <div
-                className={styles.elem}
+                className={cascade.elem}
                 style={{ '--delay': '0.2s', '--translation': '-50px' } as CSSProperties}
               >
-                <h4 className={styles.elemName}>Продолжительность</h4>
-                <p className={styles.elemContent}>{Program.duration}</p>
+                <h4 className={cascade.elemName}>Продолжительность</h4>
+                <p className={cascade.elemContent}>{Program.duration}</p>
               </div>
               <div
-                className={styles.elem}
+                className={cascade.elem}
                 style={{ '--delay': '0.4s', '--translation': '50px' } as CSSProperties}
               >
-                <h4 className={styles.elemName}>В программе</h4>
-                <p className={styles.elemContent}>{Program.content.join(', ')}</p>
+                <h4 className={cascade.elemName}>В программе</h4>
+                <p className={cascade.elemContent}>{Program.content.join(', ')}</p>
               </div>
             </div>
-            <div className={styles.image}>
+            <div className={cascade.image}>
               <Image src={poster} layout="fill" objectFit="contain" />
             </div>
-            <div className={styles.info}>
+            <div className={cascade.info}>
               <div
-                className={styles.elem}
+                className={cascade.elem}
                 style={{ '--delay': '0.6s', '--translation': '-50px' } as CSSProperties}
               >
-                <h4 className={styles.elemName}>Мероприятие</h4>
-                <p className={styles.elemContent}>{Information.name}</p>
+                <h4 className={cascade.elemName}>Мероприятие</h4>
+                <p className={cascade.elemContent}>{Information.name}</p>
               </div>
               <div
-                className={styles.elem}
+                className={cascade.elem}
                 style={{ '--delay': '0.8s', '--translation': '50px' } as CSSProperties}
               >
-                <h4 className={styles.elemName}>Место проведения</h4>
-                <p className={styles.elemContent}>{Information.location}</p>
+                <h4 className={cascade.elemName}>Место проведения</h4>
+                <p className={cascade.elemContent}>{Information.location}</p>
               </div>
               <div
-                className={styles.elem}
+                className={cascade.elem}
                 style={{ '--delay': '1s', '--translation': '-50px' } as CSSProperties}
               >
-                <h4 className={styles.elemName}>Дата</h4>
-                <p className={styles.elemContent}>{Information.date}</p>
+                <h4 className={cascade.elemName}>Дата</h4>
+                <p className={cascade.elemContent}>{Information.date}</p>
               </div>
               <div
-                className={styles.elem}
+                className={cascade.elem}
                 style={{ '--delay': '1.2s', '--translation': '50px' } as CSSProperties}
               >
-                <h4 className={styles.elemName}>Стоимость билета</h4>
-                <p className={styles.elemContent}>От {Information.price} ₽</p>
+                <h4 className={cascade.elemName}>Стоимость билета</h4>
+                <p className={cascade.elemContent}>От {Information.price} ₽</p>
               </div>
             </div>
           </div>
