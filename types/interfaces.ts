@@ -1,7 +1,7 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 import { KvartetMember } from '.';
-import { Instrument, Navigation } from './enums';
+import { Instrument, Navigation, Presentation } from './enums';
 
 export interface IKvartetMember {
   name: string;
@@ -62,6 +62,7 @@ export interface IScreenManager {
 
 export interface IScreenProps {
   isActive: boolean;
+  isMobile: boolean;
 }
 
 export interface IScreenWithOptionsProps extends IScreenProps {
@@ -83,4 +84,14 @@ export interface IMemberScreenOptions extends IScreenOptions {
 export interface IScreen {
   component: (props: IScreenProps) => JSX.Element;
   navigation: Navigation;
+}
+
+export interface IVersionProps {
+  onChangePresentation: () => void;
+  textFor: Presentation;
+  fixed: boolean;
+}
+
+export interface ICascadeStyles {
+  [key: string]: string;
 }
