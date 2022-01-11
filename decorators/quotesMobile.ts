@@ -3,7 +3,7 @@ import { IDecorator } from '@Types/interfaces';
 const decorators: IDecorator[] = [
   {
     position: {
-      top: 60,
+      top: 150,
       right: 300,
     },
     width: 400,
