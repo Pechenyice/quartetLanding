@@ -58,7 +58,12 @@ const ClassicVersion = ({ onChangePresentation, textFor }: IVersionProps) => {
       <Events options={{ decorators: eventsMobileDecorators }} isActive={true} isMobile={true} />
       <Archive options={{ decorators: archiveMobileDecorators }} isActive={true} isMobile={true} />
       <CustomMedia isActive={true} isMobile={true} />
-      <VersionManager onChangePresentation={onChangePresentation} textFor={textFor} fixed />
+      <VersionManager
+        onChangePresentation={onChangePresentation}
+        textFor={textFor}
+        fixed
+        isMobile
+      />
     </>
   );
 };
