@@ -1,33 +1,58 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Archive/Archive.module.css';
-import { combineClasses } from '@Utils';
-import { IScreenWithOptionsProps } from '@Types/interfaces';
+import mobileStyles from '@Styles/Alternate/Archive/Archive.mobile.module.css';
+import { combineClasses, createCascade } from '@Utils';
+import { ICascadeStyles, IScreenWithOptionsProps } from '@Types/interfaces';
 import Program from '@Events/Program';
 import Information from '@Events/Information';
 import poster from '@Public/poster.png';
 
-const Archive = ({ isActive, options }: IScreenWithOptionsProps) => {
+const Archive = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
+  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+
   let [appeared, setAppeared] = useState(false);
 
-  useEffect(() => {
-    let appearance = setTimeout(() => setAppeared(true), 300);
+  let wrapper = useRef(null as unknown as HTMLElement);
 
-    return () => clearTimeout(appearance);
+  useEffect(() => {
+    let appearance: any = -1;
+    if (!isMobile) {
+      appearance = setTimeout(() => setAppeared(true), 300);
+    } else {
+      document.addEventListener('scroll', AnimatorController);
+      AnimatorController();
+    }
+
+    return () => {
+      clearTimeout(appearance);
+      document.removeEventListener('scroll', AnimatorController);
+    };
   }, []);
+
+  function AnimatorController() {
+    if (wrapper.current?.getBoundingClientRect().top < window.innerHeight / 2) {
+      setAppeared(true);
+    }
+
+    if (wrapper.current?.getBoundingClientRect().top >= window.innerHeight) {
+      setAppeared(false);
+    }
+  }
 
   return (
     <section
       className={combineClasses(
-        styles.wrapper,
+        cascade.wrapper,
         'appScreen',
-        !isActive || !appeared ? styles.inactive : ''
+        !isActive || !appeared ? cascade.inactive : ''
       )}
+      ref={wrapper}
     >
       {options.decorators.map((d, i) => (
         <div
           key={`decorator-${i}`}
-          className={styles.decorator}
+          className={cascade.decorator}
           style={
             {
               '--width': d.width + 'px',
@@ -45,35 +70,35 @@ const Archive = ({ isActive, options }: IScreenWithOptionsProps) => {
           }
         ></div>
       ))}
-      <div className={styles.animator}>
-        <div className={styles.block}>
-          <h3 className={styles.blockName}>Архив</h3>
-          <div className={styles.gallery}>
-            <div className={combineClasses(styles.back, styles.branch)}>
-              <div className={styles.case} style={{ '--delay': '0' } as CSSProperties}>
+      <div className={cascade.animator}>
+        <div className={cascade.block}>
+          <h3 className={cascade.blockName}>Архив</h3>
+          <div className={cascade.gallery}>
+            <div className={combineClasses(cascade.back, cascade.branch)}>
+              <div className={cascade.case} style={{ '--delay': '0' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
-              <div className={styles.case} style={{ '--delay': '.8' } as CSSProperties}>
+              <div className={cascade.case} style={{ '--delay': '.8' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
-              <div className={styles.case} style={{ '--delay': '.3' } as CSSProperties}>
+              <div className={cascade.case} style={{ '--delay': '.3' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
-              <div className={styles.case} style={{ '--delay': '1.5' } as CSSProperties}>
+              <div className={cascade.case} style={{ '--delay': '1.5' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
             </div>
-            <div className={combineClasses(styles.front, styles.branch)}>
-              <div className={styles.case} style={{ '--delay': '1' } as CSSProperties}>
+            <div className={combineClasses(cascade.front, cascade.branch)}>
+              <div className={cascade.case} style={{ '--delay': '1' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
-              <div className={styles.case} style={{ '--delay': '1.2' } as CSSProperties}>
+              <div className={cascade.case} style={{ '--delay': '1.2' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
-              <div className={styles.case} style={{ '--delay': '1' } as CSSProperties}>
+              <div className={cascade.case} style={{ '--delay': '1' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
-              <div className={styles.case} style={{ '--delay': '2' } as CSSProperties}>
+              <div className={cascade.case} style={{ '--delay': '2' } as CSSProperties}>
                 <Image src={poster} layout="fill" objectFit="contain" />
               </div>
             </div>
