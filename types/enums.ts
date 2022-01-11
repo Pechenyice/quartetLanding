@@ -12,6 +12,11 @@ export enum Floor {
   'Наши медиа',
 }
 
+export enum Presentation {
+  CLASSIC = 'CLASSIC',
+  FEATURE = 'FEATURE',
+}
+
 export enum Navigation {
   'Clio quartet' = 0,
   'Наша команда / Полина' = 1,
