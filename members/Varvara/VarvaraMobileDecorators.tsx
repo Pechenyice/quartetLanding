@@ -4,7 +4,7 @@ const circles: IDecorator[] = [
   {
     position: {
       bottom: 190,
-      right: 305,
+      right: 105,
     },
     width: 312,
     height: 312,
@@ -13,7 +13,7 @@ const circles: IDecorator[] = [
   },
   {
     position: {
-      right: 505,
+      right: 305,
       bottom: 212,
     },
     width: 461,

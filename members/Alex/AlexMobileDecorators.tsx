@@ -3,7 +3,7 @@ import { IDecorator } from '@Types/interfaces';
 const circles: IDecorator[] = [
   {
     position: {
-      right: 150,
+      right: 100,
       bottom: 170,
     },
     width: 460,
@@ -14,7 +14,7 @@ const circles: IDecorator[] = [
   {
     position: {
       bottom: 326,
-      right: 496,
+      right: 446,
     },
     width: 312,
     height: 312,
