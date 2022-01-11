@@ -2,19 +2,17 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Alternate/Alternate.module.css';
 import * as members from '@Members';
-import { Navigation, VersionManager } from '@Components';
+import { ClassicVersion, Navigation, VersionManager } from '@Components';
 import { KvartetMember } from '@Types';
 import { IScreenManager } from '@Types/interfaces';
 import { getScreen, screens } from '@Screens';
 import { Key } from 'ts-keycode-enum';
+import { Presentation } from '@Types/enums';
 
 const Home = ({ kvartet }: { kvartet: string }) => {
   let [_kvartet, setKvartet] = useState([] as KvartetMember[]);
-
-  useEffect(() => {
-    setKvartet(JSON.parse(kvartet));
-  }, [kvartet]);
-
+  let [mobile, setMobile] = useState(false);
+  let [pinnedChoice, setPinnedChoice] = useState(null as unknown as Presentation);
   let [screenManager, updateScreenManager] = useState({
     activeScreen: 0,
     nextScreen: null,
@@ -22,6 +20,37 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     animationDuration: 2000,
     sibling: null,
   } as IScreenManager);
+
+  useEffect(() => {
+    setKvartet(JSON.parse(kvartet));
+  }, [kvartet]);
+
+  useEffect(() => {
+    document.addEventListener('wheel', wheelManager);
+    document.addEventListener('keydown', keyManager);
+
+    return () => {
+      document.removeEventListener('wheel', wheelManager);
+      document.removeEventListener('keydown', keyManager);
+    };
+  }, [screenManager.activeScreen]);
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeManager);
+
+    return () => {
+      window.removeEventListener('resize', resizeManager);
+    };
+  }, [mobile]);
+
+  useEffect(() => {
+    resizeManager();
+    pinManager();
+  }, []);
+
+  useEffect(() => {
+    resizeManager();
+  }, [pinnedChoice]);
 
   function commitScreen(index: number) {
     clearTimeout(screenManager.sibling as unknown as number);
@@ -46,15 +75,23 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     });
   }
 
-  useEffect(() => {
-    document.addEventListener('wheel', wheelManager);
-    document.addEventListener('keydown', keyManager);
+  function pinManager() {
+    if (location.hash.startsWith('#pinned:classic')) {
+      setPinnedChoice(Presentation.CLASSIC);
+    } else if (location.hash.startsWith('#pinned:feature')) {
+      setPinnedChoice(Presentation.FEATURE);
+    }
+  }
 
-    return () => {
-      document.removeEventListener('wheel', wheelManager);
-      document.removeEventListener('keydown', keyManager);
-    };
-  }, [screenManager.activeScreen]);
+  function resizeManager() {
+    if (window.innerWidth <= 1200 || window.innerHeight <= 650) {
+      location.hash = `${location.hash.split('&')[0]}&m`;
+      setMobile(true);
+    } else {
+      location.hash = location.hash.startsWith('#pinned') ? location.hash.replace(/&m/, '') : '';
+      setMobile(false);
+    }
+  }
 
   function keyManager(e: KeyboardEvent) {
     if (e.which === Key.DownArrow) {
@@ -76,13 +113,32 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     setNewScreen(index);
   }
 
+  const setNewPresentation = (presentation: Presentation) => () => {
+    location.hash = presentation === Presentation.CLASSIC ? 'pinned:classic' : 'pinned:feature';
+    setPinnedChoice(presentation);
+  };
+
   let ActiveScreen = getScreen(screenManager.activeScreen);
 
   return (
     <section className={styles.app}>
-      <ActiveScreen.component isActive={!screenManager.isSwapping} />
-      <Navigation activePoint={ActiveScreen.navigation} clickManager={clickManager} />
-      <VersionManager />
+      {mobile || pinnedChoice === Presentation.CLASSIC ? (
+        <ClassicVersion
+          textFor={Presentation.FEATURE}
+          onChangePresentation={setNewPresentation(Presentation.FEATURE)}
+          fixed
+        />
+      ) : (
+        <>
+          <ActiveScreen.component isActive={!screenManager.isSwapping} isMobile={false} />
+          <Navigation activePoint={ActiveScreen.navigation} clickManager={clickManager} />
+          <VersionManager
+            textFor={Presentation.CLASSIC}
+            onChangePresentation={setNewPresentation(Presentation.CLASSIC)}
+            fixed={false}
+          />
+        </>
+      )}
     </section>
   );
 };
