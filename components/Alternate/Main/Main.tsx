@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Main/Main.module.css';
 import { combineClasses } from '@Utils';
@@ -7,13 +7,17 @@ import star from '@Public/star.png';
 import violin from '@Public/violin.png';
 import { IScreenProps } from '@Types/interfaces';
 
-const Main = ({ isActive }: IScreenProps) => {
+const Main = ({ isActive, isMobile }: IScreenProps) => {
   let [appeared, setAppeared] = useState(false);
+
+  let wrapper = useRef(null as unknown as HTMLElement);
 
   useEffect(() => {
     let appearance = setTimeout(() => setAppeared(true), 300);
 
-    return () => clearTimeout(appearance);
+    return () => {
+      clearTimeout(appearance);
+    };
   }, []);
 
   return (
@@ -23,6 +27,7 @@ const Main = ({ isActive }: IScreenProps) => {
         'appScreen',
         !isActive || !appeared ? styles.inactive : ''
       )}
+      ref={wrapper}
     >
       <div className={styles.animator}>
         <div className={styles.heightController}>
