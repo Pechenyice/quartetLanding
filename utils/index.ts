@@ -14,6 +14,7 @@ function createCascade(isMobile: boolean, styles: ICascadeStyles, mobileStyles: 
     cascade = { ...styles };
     for (let [key, moduled] of Object.entries(mobileStyles)) {
       if (cascade[key]) cascade[key] = combineClasses(cascade[key], moduled);
+      else cascade[key] = moduled;
     }
   } else {
     cascade = { ...styles };
