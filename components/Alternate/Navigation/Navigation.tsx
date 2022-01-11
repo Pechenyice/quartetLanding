@@ -6,11 +6,16 @@ import { combineClasses } from '@Utils';
 const Navigation = ({
   activePoint,
   clickManager,
+  userNavigationHelper,
 }: {
   activePoint: navigation;
   clickManager: (index: number) => void;
+  userNavigationHelper: (screen: navigation | null, visible: boolean) => void;
 }) => {
   let bindClick = (i: number) => () => clickManager(i);
+
+  let userGoingToNavigate = (screen: navigation | null, visible: boolean) => () =>
+    userNavigationHelper(screen, visible);
 
   return (
     <section className={combineClasses(styles.wrapper, +activePoint ? styles.colored : '')}>
@@ -22,7 +27,12 @@ const Navigation = ({
             className={combineClasses(styles.nav, +activePoint === +value ? styles.nav_active : '')}
           >
             <div>
-              <div className={styles.number} onClick={bindClick(+i)}>
+              <div
+                className={styles.number}
+                onClick={bindClick(+i)}
+                onMouseEnter={userGoingToNavigate(+i, true)}
+                onMouseLeave={userGoingToNavigate(+i, false)}
+              >
                 {`0${+value + 1}`.slice(-2)}
               </div>
               <div className={styles.name}>{navigation[+value]}</div>
