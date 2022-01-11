@@ -4,6 +4,10 @@
   left: 150px;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .activator {
   all: unset;
   width: 55px;
@@ -36,9 +40,9 @@
 
 .hint {
   position: absolute;
-  width: 230px;
+  width: 270px;
   height: 55px;
-  right: -250px;
+  right: -290px;
   top: 0;
   font-family: Gilroy;
   font-style: normal;
@@ -50,6 +54,7 @@
   transform: translateY(20px);
   transition: 0.5s;
   transition-delay: 0.3s;
+  pointer-events: none;
 }
 
 .activator:hover ~ .hint {
@@ -76,6 +81,16 @@
   stroke: black;
   transition: 0.3s;
   transition-delay: 0.3s;
+}
+
+@media screen and (max-width: 1560px) {
+  .hint {
+    right: unset;
+    top: unset;
+    bottom: -43px;
+    left: 0;
+    transform: translateY(5px);
+  }
 }
 
 @media screen and (max-width: 1360px) {
