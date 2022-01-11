@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Main/Main.module.css';
-import { combineClasses } from '@Utils';
+import mobileStyles from '@Styles/Alternate/Main/Main.mobile.module.css';
+import { combineClasses, createCascade } from '@Utils';
 import ellipse from '@Public/mainPageEllipse.png';
 import star from '@Public/star.png';
 import violin from '@Public/violin.png';
-import { IScreenProps } from '@Types/interfaces';
+import { ICascadeStyles, IScreenProps } from '@Types/interfaces';
 
 const Main = ({ isActive, isMobile }: IScreenProps) => {
+  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+
   let [appeared, setAppeared] = useState(false);
 
   let wrapper = useRef(null as unknown as HTMLElement);
@@ -23,69 +26,69 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
   return (
     <section
       className={combineClasses(
-        styles.wrapper,
+        cascade.wrapper,
         'appScreen',
-        !isActive || !appeared ? styles.inactive : ''
+        !isActive || !appeared ? cascade.inactive : ''
       )}
       ref={wrapper}
     >
-      <div className={styles.animator}>
-        <div className={styles.heightController}>
-          <div className={styles.heading}>
+      <div className={cascade.animator}>
+        <div className={cascade.heightController}>
+          <div className={cascade.heading}>
             <h2>Clio quartet,</h2>
             <h2> который приятно </h2>
             <h2>послушать</h2>
           </div>
-          <div className={styles.images}>
-            <div className={styles.ellipse}>
+          <div className={cascade.images}>
+            <div className={cascade.ellipse}>
               <Image src={ellipse} layout="fill" />
             </div>
-            <div className={combineClasses(styles.star, styles.star_left)}>
+            <div className={combineClasses(cascade.star, cascade.star_left)}>
               <Image src={star} layout="fill" objectFit="contain" />
             </div>
-            <div className={combineClasses(styles.star, styles.star_rightBig)}>
+            <div className={combineClasses(cascade.star, cascade.star_rightBig)}>
               <Image src={star} layout="fill" objectFit="contain" />
             </div>
-            <div className={combineClasses(styles.star, styles.star_rightSmall)}>
+            <div className={combineClasses(cascade.star, cascade.star_rightSmall)}>
               <Image src={star} layout="fill" objectFit="contain" />
             </div>
-            <div className={styles.imageBox}>
-              <div className={styles.imageBoxResizer}>
+            <div className={cascade.imageBox}>
+              <div className={cascade.imageBoxResizer}>
                 <div
                   className={combineClasses(
-                    styles.logo,
-                    styles.logoAddition_1,
-                    styles.appearance_5
+                    cascade.logo,
+                    cascade.logoAddition_1,
+                    cascade.appearance_5
                   )}
                 >
                   <Image src={violin} alt="logo main" />
                 </div>
                 <div
                   className={combineClasses(
-                    styles.logo,
-                    styles.logoAddition_2,
-                    styles.appearance_5
+                    cascade.logo,
+                    cascade.logoAddition_2,
+                    cascade.appearance_5
                   )}
                 >
                   <Image src={violin} alt="logo main" />
                 </div>
                 <div
                   className={combineClasses(
-                    styles.logo,
-                    styles.logoAddition_3,
-                    styles.appearance_5
+                    cascade.logo,
+                    cascade.logoAddition_3,
+                    cascade.appearance_5
                   )}
                 >
                   <Image src={violin} alt="logo main" />
                 </div>
-                <div className={combineClasses(styles.logo, styles.appearance_5)}>
+                <div className={combineClasses(cascade.logo, cascade.appearance_5)}>
                   <Image src={violin} alt="logo main" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className={styles.hint}>
+        <div className={cascade.hint}>
           <svg
             width="40"
             height="65"
@@ -102,7 +105,7 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
               rx="2.5"
               fill="white"
               stroke="white"
-              className={styles.mouse}
+              className={cascade.mouse}
             />
           </svg>
           <p>Или</p>
@@ -132,7 +135,7 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
               height="30.4286"
               rx="3.5"
               stroke="white"
-              className={styles.button}
+              className={cascade.button}
             />
             <rect
               x="34.874"
@@ -141,7 +144,7 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
               height="30.4286"
               rx="3.5"
               stroke="white"
-              className={styles.button}
+              className={cascade.button}
             />
             <path
               d="M83.333 54.4761L86.458 50.2857L83.333 46.0952"
