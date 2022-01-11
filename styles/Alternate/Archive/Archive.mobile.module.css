@@ -3,5 +3,5 @@
 }
 
 .decorator {
-  filter: blur(50px) opacity(var(--opacity));
+  filter: blur(100px) opacity(var(--opacity));
 }
