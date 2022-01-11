@@ -1,8 +1,9 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Media/Media.module.css';
-import { combineClasses } from '@Utils';
-import { IScreenProps } from '@Types/interfaces';
+import mobileStyles from '@Styles/Alternate/Media/Media.mobile.module.css';
+import { combineClasses, createCascade } from '@Utils';
+import { ICascadeStyles, IScreenProps } from '@Types/interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import media from '@Media';
 import Polina from '@Public/Polina.png';
@@ -11,29 +12,53 @@ import Alex from '@Public/Alex.png';
 import Varvara from '@Public/Varvara.png';
 import violin from '@Public/violin.png';
 
-const Main = ({ isActive }: IScreenProps) => {
+const Main = ({ isActive, isMobile }: IScreenProps) => {
+  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+
   let [appeared, setAppeared] = useState(false);
 
-  useEffect(() => {
-    let appearance = setTimeout(() => setAppeared(true), 300);
+  let wrapper = useRef(null as unknown as HTMLElement);
 
-    return () => clearTimeout(appearance);
+  useEffect(() => {
+    let appearance: any = -1;
+    if (!isMobile) {
+      appearance = setTimeout(() => setAppeared(true), 300);
+    } else {
+      document.addEventListener('scroll', AnimatorController);
+      AnimatorController();
+    }
+
+    return () => {
+      clearTimeout(appearance);
+      document.removeEventListener('scroll', AnimatorController);
+    };
   }, []);
+
+  function AnimatorController() {
+    if (wrapper.current?.getBoundingClientRect().top < window.innerHeight / 2) {
+      setAppeared(true);
+    }
+
+    if (wrapper.current?.getBoundingClientRect().top >= window.innerHeight) {
+      setAppeared(false);
+    }
+  }
 
   return (
     <section
       className={combineClasses(
-        styles.wrapper,
+        cascade.wrapper,
         'appScreen',
-        !isActive || !appeared ? styles.inactive : ''
+        !isActive || !appeared ? cascade.inactive : ''
       )}
+      ref={wrapper}
     >
-      <div className={styles.animator}>
+      <div className={cascade.animator}>
         <div>
-          <div className={styles.links}>
+          <div className={cascade.links}>
             {media.map((m, i) => (
               <div
-                className={styles.link}
+                className={cascade.link}
                 key={i}
                 style={
                   {
@@ -45,26 +70,26 @@ const Main = ({ isActive }: IScreenProps) => {
               >
                 <a href={m.link}>
                   <FontAwesomeIcon icon={m.icon} />
-                  <div className={styles.linkHint}>Перейти в {m.name}</div>
+                  <div className={cascade.linkHint}>Перейти в {m.name}</div>
                 </a>
               </div>
             ))}
           </div>
-          <h2 className={styles.heading}>Clio quartet</h2>
-          <div className={styles.images}>
-            <div className={styles.image} style={{ '--delay': '.1' } as CSSProperties}>
+          <h2 className={cascade.heading}>Clio quartet</h2>
+          <div className={cascade.images}>
+            <div className={cascade.image} style={{ '--delay': '.1' } as CSSProperties}>
               <Image src={Polina} layout="fill" objectFit="contain" />
             </div>
-            <div className={styles.image} style={{ '--delay': '.2' } as CSSProperties}>
+            <div className={cascade.image} style={{ '--delay': '.2' } as CSSProperties}>
               <Image src={Alex} layout="fill" objectFit="contain" />
             </div>
-            <div className={styles.image} style={{ '--delay': '.3' } as CSSProperties}>
+            <div className={cascade.image} style={{ '--delay': '.3' } as CSSProperties}>
               <Image src={violin} layout="fill" objectFit="contain" />
             </div>
-            <div className={styles.image} style={{ '--delay': '.4' } as CSSProperties}>
+            <div className={cascade.image} style={{ '--delay': '.4' } as CSSProperties}>
               <Image src={PolinaK} layout="fill" objectFit="contain" />
             </div>
-            <div className={styles.image} style={{ '--delay': '.5' } as CSSProperties}>
+            <div className={cascade.image} style={{ '--delay': '.5' } as CSSProperties}>
               <Image src={Varvara} layout="fill" objectFit="contain" />
             </div>
           </div>
