@@ -1,34 +1,34 @@
-import React from "react";
+import React from 'react';
 import {
-	IKvartetMember,
-	IMemberScreenOptions,
-	IMemberScreenProps,
-	IScreenProps,
-	IScreenOptions,
-	IScreenWithOptionsProps,
-} from "@Types/interfaces";
+  IKvartetMember,
+  IMemberScreenOptions,
+  IMemberScreenProps,
+  IScreenProps,
+  IScreenOptions,
+  IScreenWithOptionsProps,
+} from '@Types/interfaces';
 
 const withMemberData = (
-	Component: (props: IMemberScreenProps) => JSX.Element,
-	member: IKvartetMember,
-	options: IMemberScreenOptions
+  Component: (props: IMemberScreenProps) => JSX.Element,
+  member: IKvartetMember,
+  options: IMemberScreenOptions
 ) => {
-	const brainedComponent = ({ isActive }: IScreenProps) => (
-		<Component member={member} isActive={isActive} options={options} />
-	);
+  const brainedComponent = ({ isActive, isMobile }: IScreenProps) => (
+    <Component member={member} isActive={isActive} isMobile={isMobile} options={options} />
+  );
 
-	return brainedComponent;
+  return brainedComponent;
 };
 
 const withOptions = (
-	Component: (props: IScreenWithOptionsProps) => JSX.Element,
-	options: IScreenOptions
+  Component: (props: IScreenWithOptionsProps) => JSX.Element,
+  options: IScreenOptions
 ) => {
-	const decoratedComponent = ({ isActive }: IScreenProps) => (
-		<Component isActive={isActive} options={options as IScreenOptions} />
-	);
+  const decoratedComponent = ({ isActive, isMobile }: IScreenProps) => (
+    <Component isActive={isActive} isMobile={isMobile} options={options as IScreenOptions} />
+  );
 
-	return decoratedComponent;
+  return decoratedComponent;
 };
 
 export { withMemberData, withOptions };
