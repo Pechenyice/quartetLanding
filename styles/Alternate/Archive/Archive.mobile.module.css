@@ -1,7 +1,78 @@
 .wrapper {
-  overflow: visible;
+  overflow-y: visible;
 }
 
 .decorator {
   filter: blur(100px) opacity(var(--opacity));
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    height: 500px;
+    overflow: hidden;
+  }
+
+  .gallery {
+    padding: 0 150px;
+    transform: unset;
+  }
+
+  .branch .case {
+    width: 87px;
+    height: 132px;
+  }
+
+  .blockName {
+    font-size: 40px;
+    line-height: 51px;
+  }
+
+  .decorator {
+    transform: scale(0.8);
+    top: calc(var(--top) / 2);
+    bottom: calc(var(--bottom) / 2);
+    width: calc(var(--width) / 1.5);
+    height: calc(var(--height) / 1.5);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .gallery {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .wrapper {
+    height: 450px;
+  }
+
+  .block {
+    width: 312px;
+    padding: 0;
+  }
+
+  .gallery {
+    padding: 0;
+  }
+
+  .blockName {
+    font-size: 26px;
+    line-height: 33px;
+    margin-bottom: 30px;
+  }
+
+  .branch {
+    height: 150px;
+  }
+
+  .front {
+    margin-top: 0px;
+    padding: 0;
+  }
+
+  .branch .case {
+    width: 75px;
+    height: 113px;
+  }
 }
