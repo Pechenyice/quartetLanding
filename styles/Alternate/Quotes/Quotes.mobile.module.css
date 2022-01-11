@@ -1,7 +1,148 @@
 .wrapper {
-  overflow: visible;
+  overflow-y: visible;
 }
 
 .decorator {
   filter: blur(100px) opacity(var(--opacity));
+}
+
+.line:nth-child(4) {
+  transition: 1s;
+  transition-delay: 1.5s;
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.inactive .line:nth-child(4) {
+  transition: 1s;
+  transition-delay: 1.5s;
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    overflow: hidden;
+    height: 600px;
+  }
+
+  .block {
+    width: 80%;
+    margin: auto;
+  }
+
+  .line {
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+
+  .line:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .line:nth-child(odd) {
+    flex-direction: row;
+  }
+
+  .line:last-child {
+    flex-direction: row;
+  }
+
+  .content {
+    font-size: 40px;
+    line-height: 51px;
+  }
+
+  .author {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .quote {
+    gap: 15px;
+  }
+
+  .star {
+    width: 15px;
+    height: 15px;
+  }
+
+  .decorator {
+    transform: scale(0.8);
+    top: calc(var(--top) / 2);
+    bottom: calc(var(--bottom) / 2);
+    left: calc(var(--left) / 2);
+    right: calc(var(--right) / 2);
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .block {
+    width: 90%;
+    margin: auto;
+  }
+
+  .content {
+    font-size: 30px;
+    line-height: 41px;
+  }
+
+  .author {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .block {
+    width: 95%;
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .wrapper {
+    height: 500px;
+  }
+
+  .block {
+    width: 312px;
+    transform: unset;
+  }
+
+  .quote {
+    flex-wrap: wrap;
+  }
+
+  .content {
+    font-size: 24px;
+    line-height: 33px;
+    text-align: right;
+  }
+
+  .author {
+    line-height: 33px;
+  }
+
+  .line {
+    margin-bottom: 30px;
+    align-items: flex-start;
+  }
+
+  .quote {
+    column-gap: 10px;
+    row-gap: 0px;
+    justify-content: right;
+  }
+
+  .divider {
+    margin-top: 12px;
+    min-width: 25px;
+  }
+
+  .star {
+    width: 10px;
+    height: 10px;
+    margin-top: -4px;
+  }
 }
