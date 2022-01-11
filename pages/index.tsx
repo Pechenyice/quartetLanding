@@ -2,17 +2,19 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Alternate/Alternate.module.css';
 import * as members from '@Members';
-import { ClassicVersion, Navigation, VersionManager } from '@Components';
+import { ClassicVersion, Navigation, NavigationHelper, VersionManager } from '@Components';
 import { KvartetMember } from '@Types';
-import { IScreenManager } from '@Types/interfaces';
+import { INavigationHelper, IScreenManager } from '@Types/interfaces';
 import { getScreen, screens } from '@Screens';
 import { Key } from 'ts-keycode-enum';
+import { Navigation as navigation } from '@Types/enums';
 import { Presentation } from '@Types/enums';
 
 const Home = ({ kvartet }: { kvartet: string }) => {
   let [_kvartet, setKvartet] = useState([] as KvartetMember[]);
   let [mobile, setMobile] = useState(false);
   let [pinnedChoice, setPinnedChoice] = useState(null as unknown as Presentation);
+  let [userNavigates, setUserNavigates] = useState(null as unknown as INavigationHelper);
   let [screenManager, updateScreenManager] = useState({
     activeScreen: 0,
     nextScreen: null,
@@ -113,6 +115,10 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     setNewScreen(index);
   }
 
+  function userNavigationHelper(screen: navigation | null, visible: boolean) {
+    setUserNavigates({ screen, visible });
+  }
+
   const setNewPresentation = (presentation: Presentation) => () => {
     location.hash = presentation === Presentation.CLASSIC ? 'pinned:classic' : 'pinned:feature';
     setPinnedChoice(presentation);
@@ -131,7 +137,12 @@ const Home = ({ kvartet }: { kvartet: string }) => {
       ) : (
         <>
           <ActiveScreen.component isActive={!screenManager.isSwapping} isMobile={false} />
-          <Navigation activePoint={ActiveScreen.navigation} clickManager={clickManager} />
+          <Navigation
+            activePoint={ActiveScreen.navigation}
+            clickManager={clickManager}
+            userNavigationHelper={userNavigationHelper}
+          />
+          <NavigationHelper userNavigates={userNavigates} />
           <VersionManager
             textFor={Presentation.CLASSIC}
             onChangePresentation={setNewPresentation(Presentation.CLASSIC)}
