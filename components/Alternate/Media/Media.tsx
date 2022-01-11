@@ -35,7 +35,7 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
   }, []);
 
   function AnimatorController() {
-    if (wrapper.current?.getBoundingClientRect().top < window.innerHeight / 2) {
+    if (wrapper.current?.getBoundingClientRect().top < window.innerHeight - 200) {
       setAppeared(true);
     }
 
@@ -54,7 +54,7 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
       ref={wrapper}
     >
       <div className={cascade.animator}>
-        <div>
+        <div className={cascade.inner}>
           <div className={cascade.links}>
             {media.map((m, i) => (
               <div
@@ -83,7 +83,10 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
             <div className={cascade.image} style={{ '--delay': '.2' } as CSSProperties}>
               <Image src={Alex} layout="fill" objectFit="contain" />
             </div>
-            <div className={cascade.image} style={{ '--delay': '.3' } as CSSProperties}>
+            <div
+              className={combineClasses(cascade.image, cascade.violin)}
+              style={{ '--delay': '.3' } as CSSProperties}
+            >
               <Image src={violin} layout="fill" objectFit="contain" />
             </div>
             <div className={cascade.image} style={{ '--delay': '.4' } as CSSProperties}>
