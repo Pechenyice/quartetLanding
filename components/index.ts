@@ -14,3 +14,4 @@ export { default as Navigation } from './Alternate/Navigation/Navigation';
 export { default as CustomMedia } from './Alternate/Media/Media';
 export { default as Archive } from './Alternate/Archive/Archive';
 export { default as VersionManager } from './VersionManager/VersionManager';
+export { default as ClassicVersion } from './ClassicVersion/ClassicVersion';
