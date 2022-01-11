@@ -1,0 +1,7 @@
+.wrapper {
+  overflow: visible;
+}
+
+.decorator {
+  filter: blur(50px) opacity(var(--opacity));
+}
