@@ -14,14 +14,25 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
   let [appeared, setAppeared] = useState(false);
 
   let wrapper = useRef(null as unknown as HTMLElement);
+  let animator = useRef(null as unknown as HTMLDivElement);
 
   useEffect(() => {
     let appearance = setTimeout(() => setAppeared(true), 300);
+    if (isMobile) {
+      document.addEventListener('scroll', AnimatorController);
+      AnimatorController();
+    }
 
     return () => {
       clearTimeout(appearance);
+      document.removeEventListener('scroll', AnimatorController);
     };
   }, []);
+
+  function AnimatorController() {
+    if (animator.current)
+      animator.current.style.opacity = window.scrollY / (window.innerHeight / 2) + '';
+  }
 
   return (
     <section
@@ -32,8 +43,9 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
       )}
       ref={wrapper}
     >
+      {isMobile && <div className={cascade.scrollAnimator} ref={animator}></div>}
       <div className={cascade.animator}>
-        <div className={cascade.heightController}>
+        <div className={cascade.sizeController}>
           <div className={cascade.heading}>
             <h2>Clio quartet,</h2>
             <h2> который приятно </h2>
