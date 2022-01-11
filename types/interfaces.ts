@@ -90,6 +90,7 @@ export interface IVersionProps {
   onChangePresentation: () => void;
   textFor: Presentation;
   fixed: boolean;
+  isMobile: boolean;
 }
 
 export interface ICascadeStyles {
