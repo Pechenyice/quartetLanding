@@ -42,6 +42,11 @@ span {
   color: #2a313c;
 }
 
+img::selection {
+  background: transparent;
+  color: inherit;
+}
+
 @font-face {
   font-family: Fog;
   src: url('./fonts/FoglihtenNo06/FoglihtenNo06_076.otf') format('opentype');
