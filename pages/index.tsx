@@ -133,6 +133,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
           textFor={Presentation.FEATURE}
           onChangePresentation={setNewPresentation(Presentation.FEATURE)}
           fixed
+          isMobile
         />
       ) : (
         <>
@@ -147,6 +148,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
             textFor={Presentation.CLASSIC}
             onChangePresentation={setNewPresentation(Presentation.CLASSIC)}
             fixed={false}
+            isMobile={false}
           />
         </>
       )}
