@@ -1,7 +1,170 @@
 .wrapper {
-  overflow: visible;
+  overflow-y: visible;
 }
 
 .decorator {
   filter: blur(100px) opacity(var(--opacity));
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .animator {
+    padding: unset;
+  }
+
+  .memberInner {
+    width: 768px;
+    transform: unset;
+    gap: 50px;
+    height: 100%;
+    margin: auto;
+    justify-content: right;
+  }
+
+  .reversed .memberInner {
+    justify-content: left;
+    margin-left: auto;
+  }
+
+  .decorator {
+    transform: scale(0.8);
+    top: calc(var(--top) / 2);
+    bottom: calc(var(--bottom) / 2);
+    left: calc(var(--left) / 2);
+    right: calc(var(--right) / 2);
+  }
+
+  .data {
+    width: max-content;
+  }
+
+  .heading {
+    font-size: 35px;
+    line-height: 44px;
+  }
+
+  .info {
+    margin-bottom: 35px;
+    gap: 15px;
+  }
+
+  .divider {
+    width: 20px;
+    height: 20px;
+    margin-top: -6px;
+  }
+
+  .text {
+    width: 400px;
+  }
+
+  .text p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .image {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    min-width: 400px;
+    top: 200px;
+    right: 400px;
+  }
+
+  .reversed .image {
+    right: unset;
+    left: 450px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .memberInner {
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .memberInner {
+    transform: scale(0.8);
+  }
+
+  .image {
+    width: 350px;
+    height: 350px;
+    min-width: 350px;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .wrapper {
+    height: 620px;
+  }
+
+  .memberInner {
+    transform: unset;
+    width: 312px;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+  }
+
+  .data {
+    width: 312px;
+  }
+
+  .info {
+    margin-bottom: 25px;
+    gap: 10px;
+  }
+
+  .heading {
+    font-size: 26px;
+    line-height: 33px;
+  }
+
+  .text {
+    width: 312px;
+  }
+
+  .text p {
+    font-size: 12px;
+    line-height: 21px;
+  }
+
+  .image {
+    width: 312px;
+    height: 312px;
+    min-width: 312px;
+    top: unset;
+    right: unset;
+    left: 0;
+    bottom: 0;
+  }
+
+  .divider {
+    width: 15px;
+    height: 15px;
+    margin-top: -4px;
+  }
+
+  .reversed .image {
+    top: unset;
+    right: unset;
+    left: 0;
+    bottom: 0;
+  }
+
+  .decorator {
+    transform: scale(0.8);
+    top: calc(var(--top) / 3);
+    bottom: calc(var(--bottom) / 3);
+    left: calc(var(--left) / 3);
+    right: calc(var(--right) / 3);
+  }
 }
