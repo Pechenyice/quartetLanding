@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '@Styles/VersionManager/VersionManager.module.css';
+import { Presentation } from '@Types/enums';
+import { IVersionProps } from '@Types/interfaces';
+import { combineClasses } from '@Utils';
 
-const VersionManager = () => {
+const VersionManager = ({ onChangePresentation, textFor, fixed }: IVersionProps) => {
   let wrapper = useRef(null as unknown as HTMLElement);
   useEffect(() => {
     setTimeout(() => {
@@ -13,8 +16,8 @@ const VersionManager = () => {
   }, []);
 
   return (
-    <section className={styles.wrapper} ref={wrapper}>
-      <button className={styles.activator}>
+    <section className={combineClasses(styles.wrapper, styles.fixed)} ref={wrapper}>
+      <button className={styles.activator} onClick={onChangePresentation}>
         <svg
           width="26"
           height="18"
@@ -31,7 +34,9 @@ const VersionManager = () => {
           />
         </svg>
       </button>
-      <p className={styles.hint}>К классической версии</p>
+      <p className={styles.hint}>
+        К {textFor === Presentation.CLASSIC ? 'классической версии' : 'произведению искусства'}
+      </p>
     </section>
   );
 };
