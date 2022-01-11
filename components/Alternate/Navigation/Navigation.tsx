@@ -12,10 +12,13 @@ const Navigation = ({
   clickManager: (index: number) => void;
   userNavigationHelper: (screen: navigation | null, visible: boolean) => void;
 }) => {
-  let bindClick = (i: number) => () => clickManager(i);
+  let bindClick = (i: number) => () => {
+    if (i !== activePoint) clickManager(i);
+  };
 
-  let userGoingToNavigate = (screen: navigation | null, visible: boolean) => () =>
-    userNavigationHelper(screen, visible);
+  let userGoingToNavigate = (screen: navigation | null, visible: boolean) => () => {
+    if (screen !== activePoint) userNavigationHelper(screen, visible);
+  };
 
   return (
     <section className={combineClasses(styles.wrapper, +activePoint ? styles.colored : '')}>
