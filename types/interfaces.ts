@@ -95,3 +95,8 @@ export interface IVersionProps {
 export interface ICascadeStyles {
   [key: string]: string;
 }
+
+export interface INavigationHelper {
+  screen: Navigation | null;
+  visible: boolean;
+}
