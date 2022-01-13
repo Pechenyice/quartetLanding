@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Main/Main.module.css';
 import mobileStyles from '@Styles/Alternate/Main/Main.mobile.module.css';
@@ -7,9 +7,13 @@ import ellipse from '@Public/mainPageEllipse.png';
 import star from '@Public/star.png';
 import violin from '@Public/violin.png';
 import { ICascadeStyles, IScreenProps } from '@Types/interfaces';
+import { ClassicNavigationAnchors } from '@Types/enums';
 
-const Main = ({ isActive, isMobile }: IScreenProps) => {
-  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+const Main = ({ isActive, isMobile, onAppeared }: IScreenProps) => {
+  let cascade: ICascadeStyles = useMemo(
+    () => createCascade(isMobile, styles, mobileStyles),
+    [isMobile]
+  );
 
   let [appeared, setAppeared] = useState(false);
 
@@ -29,6 +33,10 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    onAppeared({ name: 'main', status: appeared });
+  }, [appeared]);
+
   function AnimatorController() {
     if (animator.current)
       animator.current.style.opacity = window.scrollY / (window.innerHeight / 2) + '';
@@ -42,6 +50,7 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
         !isActive || !appeared ? cascade.inactive : ''
       )}
       ref={wrapper}
+      id={ClassicNavigationAnchors.MAIN}
     >
       {isMobile && <div className={cascade.scrollAnimator} ref={animator}></div>}
       <div className={cascade.animator}>
