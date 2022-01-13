@@ -13,8 +13,14 @@ const withMemberData = (
   member: IKvartetMember,
   options: IMemberScreenOptions
 ) => {
-  const brainedComponent = ({ isActive, isMobile }: IScreenProps) => (
-    <Component member={member} isActive={isActive} isMobile={isMobile} options={options} />
+  const brainedComponent = ({ isActive, isMobile, onAppeared }: IScreenProps) => (
+    <Component
+      member={member}
+      isActive={isActive}
+      isMobile={isMobile}
+      onAppeared={onAppeared}
+      options={options}
+    />
   );
 
   return brainedComponent;
@@ -24,8 +30,13 @@ const withOptions = (
   Component: (props: IScreenWithOptionsProps) => JSX.Element,
   options: IScreenOptions
 ) => {
-  const decoratedComponent = ({ isActive, isMobile }: IScreenProps) => (
-    <Component isActive={isActive} isMobile={isMobile} options={options as IScreenOptions} />
+  const decoratedComponent = ({ isActive, isMobile, onAppeared }: IScreenProps) => (
+    <Component
+      isActive={isActive}
+      isMobile={isMobile}
+      onAppeared={onAppeared}
+      options={options as IScreenOptions}
+    />
   );
 
   return decoratedComponent;
