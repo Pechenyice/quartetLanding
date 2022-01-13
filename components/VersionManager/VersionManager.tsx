@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '@Styles/VersionManager/VersionManager.module.css';
 import { Presentation } from '@Types/enums';
-import { IVersionProps } from '@Types/interfaces';
+import { IVersionManagerProps, IVersionProps } from '@Types/interfaces';
 import { combineClasses } from '@Utils';
 
-const VersionManager = ({ onChangePresentation, textFor, fixed, isMobile }: IVersionProps) => {
+const VersionManager = ({ onChangePresentation, textFor, isMobile }: IVersionManagerProps) => {
   let wrapper = useRef(null as unknown as HTMLElement);
   useEffect(() => {
     setTimeout(() => {
