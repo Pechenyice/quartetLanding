@@ -6,8 +6,8 @@ import {
   VarvaraDecorators,
   AlexDecorators,
 } from '@Members/decorators';
-import { Navigation } from '@Types/enums';
-import { IScreen } from '@Types/interfaces';
+import { ClassicNavigationAnchors, Navigation } from '@Types/enums';
+import { IClassicNavigationElement, IScreen } from '@Types/interfaces';
 import { archiveDecorators, eventsDecorators, quotesDecorators } from '@Decorators';
 import { withMemberData, withOptions } from 'HOC';
 import { formatWithOptions } from 'util';
@@ -63,6 +63,39 @@ const screens: IScreen[] = [
   },
 ];
 
+let classicScreensConfig: IClassicNavigationElement[] = [
+  {
+    name: 'CLIO QUARTET',
+    screens: [0],
+    href: ClassicNavigationAnchors.MAIN,
+  },
+  {
+    name: 'НАША КОМАНДА',
+    screens: [1, 2, 3, 4],
+    href: ClassicNavigationAnchors.TEAM,
+  },
+  {
+    name: 'ОТЗЫВЫ',
+    screens: [5],
+    href: ClassicNavigationAnchors.QUOTES,
+  },
+  {
+    name: 'ВЫСТУПЛЕНИЯ',
+    screens: [6],
+    href: ClassicNavigationAnchors.EVENTS,
+  },
+  {
+    name: 'АРХИВ',
+    screens: [7],
+    href: ClassicNavigationAnchors.ARCHIVE,
+  },
+  {
+    name: 'НАШИ МЕДИА',
+    screens: [8],
+    href: ClassicNavigationAnchors.MEDIA,
+  },
+];
+
 const getScreen = (index: number) => screens[index];
 
-export { getScreen, screens };
+export { getScreen, screens, classicScreensConfig };
