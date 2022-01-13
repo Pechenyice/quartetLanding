@@ -16,6 +16,19 @@
   pointer-events: none;
 }
 
+.images {
+  top: 17%;
+}
+
+.star_left {
+  top: 100px;
+  left: 35px;
+}
+
+.heading {
+  padding-top: calc(50vh - 80px);
+}
+
 @media screen and (max-width: 1200px) {
   .wrapper {
     height: 650px;
@@ -76,7 +89,7 @@
   }
 
   .heading {
-    padding-top: 250px;
+    padding-top: 270px;
     margin-left: 120px;
   }
 
@@ -110,6 +123,10 @@
     height: 358px;
   }
 
+  .heading {
+    padding-top: 290px;
+  }
+
   .heading h2 {
     font-size: 50px;
     line-height: 66px;
@@ -133,7 +150,7 @@
 
 @media screen and (max-width: 728px) {
   .wrapper {
-    height: 100vh;
+    height: 100%;
   }
 
   .heading {
