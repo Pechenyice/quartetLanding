@@ -1,4 +1,4 @@
-import { ICascadeStyles } from '@Types/interfaces';
+import { ICascadeStyles, IClassicNavigationElement } from '@Types/interfaces';
 
 function combineClasses(...classes: string[]): string {
   return classes.join(' ');
@@ -22,4 +22,11 @@ function createCascade(isMobile: boolean, styles: ICascadeStyles, mobileStyles: 
   return cascade;
 }
 
-export { combineClasses, withAssetPrefix, createCascade };
+function selectScreen(screen: number | null, config: IClassicNavigationElement[]) {
+  for (let option = 0; option < config.length; option++) {
+    if (screen !== null && config[option].screens.includes(screen)) return option;
+  }
+  return null;
+}
+
+export { combineClasses, withAssetPrefix, createCascade, selectScreen };
