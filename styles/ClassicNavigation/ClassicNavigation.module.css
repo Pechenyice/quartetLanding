@@ -1,0 +1,59 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(42, 49, 60, 0.35);
+  backdrop-filter: blur(50px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 32px;
+  color: #ffffff;
+}
+
+.elem {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.elem:hover {
+  color: #bd8f75;
+  transition: 0.5s;
+}
+
+.elem_active {
+  color: #bd8f75;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    height: 60px;
+    font-size: 16px;
+    line-height: 32px;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 828px) {
+  .nav {
+    height: 50px;
+    font-size: 14px;
+    line-height: 28px;
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .nav {
+    display: none;
+  }
+}
