@@ -56,6 +56,10 @@
   transition-delay: calc(var(--delay) * 1s);
 }
 
+.link svg {
+  width: 48px;
+}
+
 .inactive .link {
   transition: 1s;
   transform: translateY(-50px);

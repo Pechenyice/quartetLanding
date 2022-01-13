@@ -52,6 +52,10 @@
     border-radius: 30px 8px;
   }
 
+  .link svg {
+    width: 36px;
+  }
+
   .link:nth-child(even) {
     border-radius: 8px 30px;
   }
@@ -93,6 +97,10 @@
     height: 35px;
     font-size: 18px;
     border-radius: 15px 4px;
+  }
+
+  .link svg {
+    width: 18px;
   }
 
   .link:nth-child(even) {

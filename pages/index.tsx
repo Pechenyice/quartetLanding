@@ -144,8 +144,8 @@ const Home = ({ kvartet }: { kvartet: string }) => {
   return (
     <section className={styles.app}>
       <Head>
-        <title>Clio Quartet: 4 всадника Апокалипсиса</title>
         <link rel="shortcut icon" href={withAssetPrefix('favicon.png')} />
+        <title>Clio Quartet: 4 всадника Апокалипсиса</title>
       </Head>
       {mobile || pinnedChoice === Presentation.CLASSIC ? (
         <ClassicVersion
