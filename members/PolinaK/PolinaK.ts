@@ -1,8 +1,9 @@
-import { Instrument } from '@Types/enums';
+import { ClassicNavigationAnchors, Instrument } from '@Types/enums';
 import { IKvartetMember } from '@Types/interfaces';
 
 const PolinaK: IKvartetMember = {
   name: 'Полина',
+  screenName: ClassicNavigationAnchors.TEAMP,
   preview: 'PolinaK.png',
   instrument: Instrument.ALTO,
   about:

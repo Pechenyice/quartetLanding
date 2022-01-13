@@ -1,8 +1,9 @@
-import { Instrument } from '@Types/enums';
+import { ClassicNavigationAnchors, Instrument } from '@Types/enums';
 import { IKvartetMember } from '@Types/interfaces';
 
 const Varvara: IKvartetMember = {
   name: 'Варвара',
+  screenName: ClassicNavigationAnchors.TEAMV,
   preview: 'Varvara.png',
   instrument: Instrument.CELLO,
   about:
