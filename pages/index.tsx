@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styles from '@Styles/Alternate/Alternate.module.css';
 import * as members from '@Members';
@@ -9,6 +10,7 @@ import { getScreen, screens } from '@Screens';
 import { Key } from 'ts-keycode-enum';
 import { Navigation as navigation } from '@Types/enums';
 import { Presentation } from '@Types/enums';
+import { withAssetPrefix } from '@Utils';
 
 const Home = ({ kvartet }: { kvartet: string }) => {
   let [_kvartet, setKvartet] = useState([] as KvartetMember[]);
@@ -141,6 +143,10 @@ const Home = ({ kvartet }: { kvartet: string }) => {
 
   return (
     <section className={styles.app}>
+      <Head>
+        <title>Clio Quartet: 4 всадника Апокалипсиса</title>
+        <link rel="shortcut icon" href={withAssetPrefix('favicon.png')} />
+      </Head>
       {mobile || pinnedChoice === Presentation.CLASSIC ? (
         <ClassicVersion
           textFor={Presentation.FEATURE}
