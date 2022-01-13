@@ -5,6 +5,7 @@ import { Instrument, Navigation, Presentation } from './enums';
 
 export interface IKvartetMember {
   name: string;
+  screenName: string;
   preview: string;
   instrument: Instrument;
   about: string;
@@ -63,6 +64,7 @@ export interface IScreenManager {
 export interface IScreenProps {
   isActive: boolean;
   isMobile: boolean;
+  onAppeared: (event: IAppearanceEvent) => void;
 }
 
 export interface IScreenWithOptionsProps extends IScreenProps {
@@ -86,11 +88,15 @@ export interface IScreen {
   navigation: Navigation;
 }
 
-export interface IVersionProps {
+export interface IVersionManagerProps {
   onChangePresentation: () => void;
   textFor: Presentation;
-  fixed: boolean;
   isMobile: boolean;
+}
+
+export interface IVersionProps extends IVersionManagerProps {
+  userScreen: number;
+  onNewActiveScreen: (index: number) => void;
 }
 
 export interface ICascadeStyles {
@@ -100,4 +106,19 @@ export interface ICascadeStyles {
 export interface INavigationHelper {
   screen: Navigation | null;
   visible: boolean;
+}
+
+export interface IAppearanceEvent {
+  name: string;
+  status: boolean;
+}
+
+export interface IScreenAppearanceStatus {
+  [key: string]: boolean;
+}
+
+export interface IClassicNavigationElement {
+  name: string;
+  screens: number[];
+  href: string;
 }
