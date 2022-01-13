@@ -28,3 +28,15 @@ export enum Navigation {
   'Архив' = 7,
   'Наши медиа' = 8,
 }
+
+export enum ClassicNavigationAnchors {
+  MAIN = 'main',
+  TEAM = 'Polina',
+  TEAMA = 'Alex',
+  TEAMP = 'PolinaK',
+  TEAMV = 'Varvara',
+  QUOTES = 'quotes',
+  EVENTS = 'events',
+  ARCHIVE = 'archive',
+  MEDIA = 'media',
+}
