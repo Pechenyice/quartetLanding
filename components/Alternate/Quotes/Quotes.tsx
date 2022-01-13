@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Quotes/Quotes.module.css';
 import mobileStyles from '@Styles/Alternate/Quotes/Quotes.mobile.module.css';
@@ -6,9 +6,13 @@ import { combineClasses, createCascade } from '@Utils';
 import { ICascadeStyles, IScreenWithOptionsProps } from '@Types/interfaces';
 import { quotes } from '@Quotes';
 import star from '@Public/star.png';
+import { ClassicNavigationAnchors } from '@Types/enums';
 
-const Quotes = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
-  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+const Quotes = ({ isActive, isMobile, options, onAppeared }: IScreenWithOptionsProps) => {
+  let cascade: ICascadeStyles = useMemo(
+    () => createCascade(isMobile, styles, mobileStyles),
+    [isMobile]
+  );
 
   let [appeared, setAppeared] = useState(false);
 
@@ -29,6 +33,10 @@ const Quotes = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    onAppeared({ name: 'quotes', status: appeared });
+  }, [appeared]);
+
   function AnimatorController() {
     if (wrapper.current?.getBoundingClientRect().top < window.innerHeight / 2) {
       setAppeared(true);
@@ -47,6 +55,7 @@ const Quotes = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
         !isActive || !appeared ? cascade.inactive : ''
       )}
       ref={wrapper}
+      id={ClassicNavigationAnchors.QUOTES}
     >
       {options.decorators.map((d, i) => (
         <div
