@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Archive/Archive.module.css';
 import mobileStyles from '@Styles/Alternate/Archive/Archive.mobile.module.css';
@@ -7,9 +7,13 @@ import { ICascadeStyles, IScreenWithOptionsProps } from '@Types/interfaces';
 import Program from '@Events/Program';
 import Information from '@Events/Information';
 import poster from '@Public/poster.png';
+import { ClassicNavigationAnchors } from '@Types/enums';
 
-const Archive = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
-  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+const Archive = ({ isActive, isMobile, options, onAppeared }: IScreenWithOptionsProps) => {
+  let cascade: ICascadeStyles = useMemo(
+    () => createCascade(isMobile, styles, mobileStyles),
+    [isMobile]
+  );
 
   let [appeared, setAppeared] = useState(false);
 
@@ -30,6 +34,10 @@ const Archive = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    onAppeared({ name: 'archive', status: appeared });
+  }, [appeared]);
+
   function AnimatorController() {
     if (wrapper.current?.getBoundingClientRect().top < window.innerHeight / 2) {
       setAppeared(true);
@@ -48,6 +56,7 @@ const Archive = ({ isActive, isMobile, options }: IScreenWithOptionsProps) => {
         !isActive || !appeared ? cascade.inactive : ''
       )}
       ref={wrapper}
+      id={ClassicNavigationAnchors.ARCHIVE}
     >
       {options.decorators.map((d, i) => (
         <div
