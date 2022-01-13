@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Media/Media.module.css';
 import mobileStyles from '@Styles/Alternate/Media/Media.mobile.module.css';
@@ -11,9 +11,13 @@ import PolinaK from '@Public/Polinak.png';
 import Alex from '@Public/Alex.png';
 import Varvara from '@Public/Varvara.png';
 import violin from '@Public/violin.png';
+import { ClassicNavigationAnchors } from '@Types/enums';
 
-const Main = ({ isActive, isMobile }: IScreenProps) => {
-  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+const Main = ({ isActive, isMobile, onAppeared }: IScreenProps) => {
+  let cascade: ICascadeStyles = useMemo(
+    () => createCascade(isMobile, styles, mobileStyles),
+    [isMobile]
+  );
 
   let [appeared, setAppeared] = useState(false);
 
@@ -34,6 +38,10 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    onAppeared({ name: 'media', status: appeared });
+  }, [appeared]);
+
   function AnimatorController() {
     if (wrapper.current?.getBoundingClientRect().top < window.innerHeight - 200) {
       setAppeared(true);
@@ -52,6 +60,7 @@ const Main = ({ isActive, isMobile }: IScreenProps) => {
         !isActive || !appeared ? cascade.inactive : ''
       )}
       ref={wrapper}
+      id={ClassicNavigationAnchors.MEDIA}
     >
       <div className={cascade.animator}>
         <div className={cascade.inner}>
