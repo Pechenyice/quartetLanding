@@ -4,7 +4,7 @@ import styles from '@Styles/Alternate/Alternate.module.css';
 import * as members from '@Members';
 import { ClassicVersion, Navigation, NavigationHelper, VersionManager } from '@Components';
 import { KvartetMember } from '@Types';
-import { INavigationHelper, IScreenManager } from '@Types/interfaces';
+import { IAppearanceEvent, INavigationHelper, IScreenManager } from '@Types/interfaces';
 import { getScreen, screens } from '@Screens';
 import { Key } from 'ts-keycode-enum';
 import { Navigation as navigation } from '@Types/enums';
@@ -66,6 +66,7 @@ const Home = ({ kvartet }: { kvartet: string }) => {
   }
 
   function setNewScreen(index: number) {
+    if (mobile || pinnedChoice === Presentation.CLASSIC) return;
     if (screenManager.isSwapping || index < 0 || index >= screens.length) return;
     updateScreenManager({
       ...screenManager,
@@ -119,6 +120,18 @@ const Home = ({ kvartet }: { kvartet: string }) => {
     setUserNavigates({ screen, visible });
   }
 
+  function noNecessity(_: IAppearanceEvent) {}
+
+  function handleNewScreenFromClassicPresentation(index: number | null) {
+    updateScreenManager({
+      ...screenManager,
+      activeScreen: index ?? 0,
+      nextScreen: null,
+      isSwapping: false,
+      sibling: null,
+    });
+  }
+
   const setNewPresentation = (presentation: Presentation) => () => {
     location.hash = presentation === Presentation.CLASSIC ? 'pinned:classic' : 'pinned:feature';
     setPinnedChoice(presentation);
@@ -131,13 +144,18 @@ const Home = ({ kvartet }: { kvartet: string }) => {
       {mobile || pinnedChoice === Presentation.CLASSIC ? (
         <ClassicVersion
           textFor={Presentation.FEATURE}
+          userScreen={screenManager.activeScreen}
           onChangePresentation={setNewPresentation(Presentation.FEATURE)}
-          fixed
+          onNewActiveScreen={handleNewScreenFromClassicPresentation}
           isMobile
         />
       ) : (
         <>
-          <ActiveScreen.component isActive={!screenManager.isSwapping} isMobile={false} />
+          <ActiveScreen.component
+            onAppeared={noNecessity}
+            isActive={!screenManager.isSwapping}
+            isMobile={false}
+          />
           <Navigation
             activePoint={ActiveScreen.navigation}
             clickManager={clickManager}
@@ -147,7 +165,6 @@ const Home = ({ kvartet }: { kvartet: string }) => {
           <VersionManager
             textFor={Presentation.CLASSIC}
             onChangePresentation={setNewPresentation(Presentation.CLASSIC)}
-            fixed={false}
             isMobile={false}
           />
         </>
