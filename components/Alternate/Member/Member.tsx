@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/Image';
 import styles from '@Styles/Alternate/Member/Member.module.css';
 import mobileStyles from '@Styles/Alternate/Member/Member.mobile.module.css';
@@ -10,9 +10,13 @@ import {
   IScreenProps,
 } from '@Types/interfaces';
 import star from '@Public/star.png';
+import { ClassicNavigationAnchors } from '@Types/enums';
 
-const Member = ({ isActive, isMobile, member, options }: IMemberScreenProps) => {
-  let cascade: ICascadeStyles = createCascade(isMobile, styles, mobileStyles);
+const Member = ({ isActive, isMobile, member, options, onAppeared }: IMemberScreenProps) => {
+  let cascade: ICascadeStyles = useMemo(
+    () => createCascade(isMobile, styles, mobileStyles),
+    [isMobile]
+  );
 
   let [appeared, setAppeared] = useState(false);
 
@@ -33,6 +37,10 @@ const Member = ({ isActive, isMobile, member, options }: IMemberScreenProps) => 
     };
   }, []);
 
+  useEffect(() => {
+    onAppeared({ name: member.screenName, status: appeared });
+  }, [appeared]);
+
   function AnimatorController() {
     if (wrapper.current?.getBoundingClientRect().top < window.innerHeight / 2) {
       setAppeared(true);
@@ -52,6 +60,7 @@ const Member = ({ isActive, isMobile, member, options }: IMemberScreenProps) => 
         !isActive || !appeared ? cascade.inactive : ''
       )}
       ref={wrapper}
+      id={member.screenName}
     >
       {options.decorators.map((d, i) => (
         <div
