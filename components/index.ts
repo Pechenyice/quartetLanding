@@ -16,3 +16,4 @@ export { default as Archive } from './Alternate/Archive/Archive';
 export { default as NavigationHelper } from './Alternate/NavigationHelper/NavigationHelper';
 export { default as VersionManager } from './VersionManager/VersionManager';
 export { default as ClassicVersion } from './ClassicVersion/ClassicVersion';
+export { default as ClassicNavigation } from './ClassicNavigation/ClassicNavigation';
