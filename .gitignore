@@ -15,6 +15,7 @@
 /out
 /build
 /build/
+/build/*
 
 # misc
 .DS_Store
